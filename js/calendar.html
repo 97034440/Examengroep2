@@ -1,0 +1,40 @@
+<!DOCTYPE>
+<html>
+<head>
+  <title>Kalender</title>
+<!-- link naar css en js -->
+  <link rel="stylesheet" href="../css/calendar.css">
+  <script src="calendar.js"></script>
+</head>
+
+<body>
+  <form>
+    Selecteer maand:
+    <select id="maand">
+      <option value="0">Januari</option>
+      <option value="1">Februari</option>
+      <option value="2">Maart</option>
+      <option value="3">April</option>
+      <option value="4">Mei</option>
+      <option value="5">Juni</option>
+      <option value="6">Juli</option>
+      <option value="7">Augustus</option>
+      <option value="8">September</option>
+      <option value="9">Oktober</option>
+      <option value="10">November</option>
+      <option value="11">December</option>
+    </select>
+    Selecteer jaar:
+    <select id="jaar">
+      <option value="2018">2018</option>
+      <option value="2019">2019</option>
+      <option value="2020">2020</option>
+      <option value="2021">2021</option>
+    </select>
+    <button onclick="event.preventDefault();displayCalendar();">Print Calendar</button>
+  </form>
+  <div id="calendar"></div>
+
+</body>
+
+</html>

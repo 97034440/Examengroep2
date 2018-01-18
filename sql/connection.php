@@ -11,8 +11,7 @@ class connection {
       return new PDO (
       $config['connection'].'; dbname='.$config['name'],
       $config['username'],
-      $config['password'],
-      $config['options']
+      $config['password']
     );
     }
     // $e is een object van PDOException

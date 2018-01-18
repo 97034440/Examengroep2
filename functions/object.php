@@ -1,42 +1,83 @@
 <?php
+$query = require'../init.php';
 
 
-class shieet {
-  private $host;
-  private $username;
-  private $password;
-
-  private $conn;
-
-  public function __Construct($set_host, $set_username, $set_password){
-    $this->host = $set_host;
-    $this->username = $set_username;
-    $this->password = $set_password;
-    $this->conn = mysqli_connect($this->host, $this->username, $this->password)
-                  or die("Couldn't connect");
-  }
-
-  public function Database($set_database)
-  {
-    mysqli_select_db(examen, $this->conn) or die("cannot select Dataabase");
-  }
-
-  public function Fetch($tablename){
-    return mysqli_query("SELECT * FROM ".$tablename, $this->conn);
-  }
-}
-
-$connect = new shieet('localhost','root','root');
-
-$posts = $connect->Fetch('object');
-
-if ($posts && mysql_num_rows($posts) > 0) {
-     echo "Here is some post data:<BR>";
-     while ($record = mysql_fetch_array($posts)) {
-         echo $record[0];
-     }
-} else {
-     echo "No posts!";
-}
-
+//roept de selectAll function aan van de querybuilder en stuurt de tabelnaam
+//en de classnaam waar je de object aan wilt koppelen.
+$objects = $query->selectAll('object');
+$images = $query->selectAll('objectimage');
 ?>
+
+<html>
+<head>
+</head>
+
+<body>
+  <ul>
+    <?php
+    foreach ($objects as $object):
+    ?>
+      <li>
+          <div>Kenteken: <?php echo $object->kenteken;?></div>
+      </li>
+      <li>
+          <div>Chassinummer: <?php echo $object->chassinummer;?></div>
+      </li>
+      <li>
+          <div>Camper/Caravan: <?php echo $object->object_type;?></div>
+      </li>
+      <li>
+          <div>Merk: <?php echo $object->merk;?></div>
+      </li>
+      <li>
+          <div>Type: <?php echo $object->type;?></div>
+      </li>
+      <li>
+          <div>Bouwjaar: <?php echo $object->bouwjaar;?></div>
+      </li>
+      <li>
+          <div>Massa inventaris: <?php echo $object->mass_inventaris;?></div>
+      </li>
+      <li>
+          <div>Max massa:<?php echo $object->massa_max;?></div>
+      </li>
+      <li>
+          <div>Lengte tot: <?php echo $object->lengte_tot?></div>
+      </li>
+      <li>
+          <div>Lengte opbouw: <?php echo $object->lengte_opbouw?></div>
+      </li>
+      <li>
+          <div>Hoogte: <?php echo $object->hoogte?></div>
+      </li>
+      <li>
+          <div>Benodigde: <?php echo $object->rijbewijs_benodigd?></div>
+      </li>
+      <li>
+          <div>Prijs per dag: <?php echo $object->prijs_dag?></div>
+      </li>
+      <li>
+          <div>Prijs per week: <?php echo $object->prijs_week?></div>
+      </li>
+      <li>
+          <div>imageid: <?php echo $object->imageid?></div>
+      </li>
+      <?php
+      foreach ($images as $image):
+        $url = '../images/camper1.jpg';
+        ?>
+
+        <li>
+           <?php echo '<img src="'.$url.'" alt="">'; ?>
+        </li>
+
+          <?php endforeach; ?>
+    </br>
+    <?php endforeach; ?>
+    ?>
+</ul>
+
+
+</body>
+
+</html>

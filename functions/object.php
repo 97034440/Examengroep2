@@ -62,15 +62,17 @@ $images = $query->selectAll('objectimage');
       <li>
           <div>imageid: <?php echo $object->imageid?></div>
       </li>
+
       <?php
       foreach ($images as $image):
-        $url = '../images/camper1.jpg';
+        $url = $image->imagelink;
         ?>
-
         <li>
            <?php echo '<img src="'.$url.'" alt="">'; ?>
         </li>
-
+        <li>
+            <div>imageid: <?php echo $image->imagelink?></div>
+        </li>
           <?php endforeach; ?>
     </br>
     <?php endforeach; ?>

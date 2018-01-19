@@ -1,6 +1,5 @@
 <?php
 
-require_once('sql/connect.php');
 require_once('css/style.css');
 $config = require'config.php';
 require'sql/connection.php';

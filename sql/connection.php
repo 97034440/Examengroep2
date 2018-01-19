@@ -19,4 +19,7 @@ class connection {
       echo 'Connection failed: ' . $e->getMessage();
     }
   }
+  public function getConnection(){
+    return $this->conn;
+  }
 }

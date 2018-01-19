@@ -1,18 +1,19 @@
 <?php
 
-include('../init.php');
-//include('sql/connect.php');
+include('../sql/connection.php');
 
 
 class RegisterModules
 {
 	private $init;
+	private $pdo;
+	private $connect;
 
 	// function __construct(){
 	// 	$this->init = new Init();
 	// }
 
-	public function __construct( PDO $pdo ) {
+	public function __construct() {
     	$this->pdo = $pdo;
     }
 
@@ -38,7 +39,7 @@ class RegisterModules
 		$status = 1;
 		$admin = 1;		
 
-		$stmt = $this->pdo->prepare("INSERT INTO accountgegevens (email, gebruikersnaam, status, admin, wachtwoord) VALUES (". $this->email .", ". $this->gebruikersnaam .", ". $this->status .", ". $this->admin .", ".$this->wachtwoord .")");
+		$stmt = $this->pdo->getConnection()->prepare("INSERT INTO accountgegevens (email, gebruikersnaam, status, admin, wachtwoord) VALUES (". $this->email .", ". $this->gebruikersnaam .", ". $this->status .", ". $this->admin .", ".$this->wachtwoord .")");
 		// var_dump($this->init->getConnection()->dump_debug_info());
         $stmt->execute();
 

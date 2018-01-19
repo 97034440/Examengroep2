@@ -19,24 +19,7 @@ class connection {
       echo 'Connection failed: ' . $e->getMessage();
     }
   }
-  public function getConnection(){
-    return $this->conn;
-  }
+  // public function getConnection(){
+  //   return $this->conn;
+  // }
 }
-
-
-// class Connection
-// {
-
-//   private $conn = "Geen connectie";
-
-//   function __construct()
-//   {
-//     $this->conn = mysqli_connect("127.0.0.1", "root", "", "examen");
-//   }
-
-//   public function getConnection(){
-//     return $this->conn;
-//   }
-// }
-

@@ -19,19 +19,6 @@ class RegisterFunction {
 		];
 		$add = $this->registerModules->addUser($anw);
 		
-
-
-
-
-
-		//$voorletters = $_POST['voorletters'];
-		// $tussenvoegsels = $_POST['tussenvoegsels'];
-		// $achternaam = $_POST['achternaam'];
-		// $gebruikersnaam = $_POST['gebruikersnaam'];
-		// $mobiel = $_POST['mobiel'];
-		// $postcode = $_POST['postcode'];
-		// $rijbewijsnummer = $_POST['rijbewijsnummer'];
-		// $telefoonnummer = $_POST['telefoonnummer'];
 	}
 }
 

@@ -12,20 +12,20 @@ return new querybuilder(
   );
 
 
-class Init
-{
+// class Init
+// {
 
-	private $connection;
-	private $conn;
+// 	private $connection;
+// 	private $conn;
 
-	function __construct()
-	{
-		$this->connection = new Connection();
-		$this->conn = $this->connection->getConnection();
-	}
+// 	function __construct()
+// 	{
+// 		$this->connection = new Connection();
+// 		$this->conn = $this->connection->getConnection();
+// 	}
 
-	public function getConnection(){
-		return $this->conn;
-	}
-}
+// 	public function getConnection(){
+// 		return $this->conn;
+// 	}
+// }
 ?>

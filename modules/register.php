@@ -1,50 +1,44 @@
 <?php
 
+include('../init.php');
 include('../sql/connection.php');
 
 
 class RegisterModules
 {
-	private $init;
+	protected $pdo;
 
 	// function __construct(){
 	// 	$this->init = new Init();
 	// }
 
 	public function __construct() {
-    	$this->pdo = $pdo;
-    }
+	    $pdo = new PDO('mysql:host=localhost;dbname=examen', 'root', '');
+			$this->pdo = $pdo;
+	  }
 
-	private $voorletters;
 	private $email;
-	private $wachtwoord;
-	private $tussenvoegsels;
-	private $achternaam;
 	private $gebruikersnaam;
-	private $mobiel;
-	private $postcode;
-	private $rijbewijsnummer;
-	private $telefoonnummer;
 	private $status;
 	private $admin;
+	private $wachtwoord;
 
 	public function addUser($anw) {
 		
 		// $naam = $anw['naam'];
 		$email = $anw['email'];
-		$this->gebruikersnaam = $anw['gebruikersnaam'];
+		$gebruikersnaam = $anw['gebruikersnaam'];
 		$wachtwoord = $anw['wachtwoord'];
 		$status = 1;
 		$admin = 1;		
+		$q = "INSERT INTO accountgegevens (email, gebruikersnaam, wachtwoord, admin, status) VALUES ('. $this->email .', '. $this->gebruikersnaam .', '. $this->wachtwoord .', '. $this->admin .', '. $this->status .')";
 
-		$stmt = $this->pdo->prepare("INSERT INTO accountgegevens (email, gebruikersnaam, status, admin, wachtwoord) VALUES (". $this->email .", ". $this->gebruikersnaam .", ". $this->status .", ". $this->admin .", ".$this->wachtwoord .")");
+		$stmt = $this->init->getConnection()->prepare($q);
 		// var_dump($this->init->getConnection()->dump_debug_info());
+
         $stmt->execute();
 
         return $stmt->fetch();
 	}
 }
-
-
-
 ?>

@@ -11,4 +11,11 @@ return new querybuilder(
     connection::connect($config['database'])
   );
 
+  return new  RegisterModules(
+    //roept static function van de connection class aan
+    //en heeft deze mee aand de querybuilder
+      connection::connect($config['database'])
+    );
+
+
 ?>

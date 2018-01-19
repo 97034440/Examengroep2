@@ -1,68 +1,18 @@
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <?php
 $query = require'../init.php';
-
 
 //roept de selectAll function aan van de querybuilder en stuurt de tabelnaam
 //en de classnaam waar je de object aan wilt koppelen.
 $objects = $query->selectAll('object');
-$images = $query->selectAll('objectimage');
+$images = $query->selectSpecific('imagelink', 'objectimage');
+
+var_dump($images);
 ?>
 
 <html>
 <head>
 </head>
+
 <body>
   <ul>
     <?php
@@ -129,5 +79,8 @@ $images = $query->selectAll('objectimage');
     <?php endforeach; ?>
     ?>
 </ul>
+
+
 </body>
+
 </html>

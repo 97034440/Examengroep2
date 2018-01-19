@@ -35,12 +35,12 @@
 	              <a class="nav-link" href="../index.php">Home</a>
 	            </li>
 	            <li class="nav-item active">
-	              <a class="nav-link" href="pages/register.php">Registreren
+	              <a class="nav-link" href="../pages/register.php">Registreren
 	              	<span class="sr-only">(current)</span>
 	              </a>
 	            </li>
 	            <li class="nav-item">
-	              <a class="nav-link" href="#">Inloggen</a>
+	              <a class="nav-link" href="../pages/inlog.php">Inloggen</a>
 	            </li>
 	          </ul>
 	        </div>

@@ -8,70 +8,71 @@ connection::connect($config['database']);
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Login : cleartuts</title>
+<link rel="stylesheet" type="text/css" href="../vendor/bootstrap/css/bootstrap.css">
+
+<!-- CSS -->
+<link rel="stylesheet" type="text/css" href="../css/style.css">
+
+<!-- CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+
+<!-- Google Fonts -->
+<link href='https://fonts.googleapis.com/css?family=Passion+One' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
+<title>Login</title>
 <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" type="text/css"  />
 <link rel="stylesheet" href="style.css" type="text/css"  />
 </head>
 <body>
+  <!-- Navigatie -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">Caravan en camper verhuur</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="../index.php">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../pages/register.php">Registreren
+            </a>
+          </li>
+          <li class="nav-item active"> <!-- Hier is te zien dat de op de inlogpagina zit -->
+            <a class="nav-link" href="../pages/inlog.php">Inloggen</a>
+            <span class="sr-only">(current)</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 <div class="container">
      <div class="form-container">
-        <form method="post">
-            <h2>Login</h2><hr />
-            <?php
-            if(isset($error))
-            {
-                  ?>
-                  <div class="alert alert-danger">
-                      <i class="glyphicon glyphicon-warning-sign"></i> &nbsp; <?php echo $error; ?> !
-                  </div>
-                  <?php
-            }
-            ?>
+        <form method="row main">
+          <div class="panel-title text-center">
+             <h1 class="title">Inloggen</h1>
+           </div>
             <div class="form-group">
-             <input type="text" class="form-control" name="txt_uname_email" placeholder="Username or E mail ID" required />
+             <input type="text" class="form-control" name="txt_uname" placeholder="Gebruikersnaam" required />
             </div>
             <div class="form-group">
-             <input type="password" class="form-control" name="txt_password" placeholder="Your Password" required />
+             <input type="password" class="form-control" name="txt_password" placeholder="Wachtwoord" required />
             </div>
             <div class="clearfix"></div><hr />
             <div class="form-group">
-             <button type="submit" name="btn-login" class="btn btn-block btn-primary">
-                 <i class="glyphicon glyphicon-log-in"></i>&nbsp;Login
+             <button type="submit" name="submit" class="btn btn-primary btn-lg btn-block login-button">
+                Login
                 </button>
             </div>
             <br />
-            <label>Nog geen account? <a href="sign-up.php">Registreer</a></label>
+            <label>Nog geen account? <a href="../pages/register.php">Registreer</a></label>
         </form>
        </div>
 </div>
 <?php
-try{
-    $dbh = connection::connect($config['database']);
-    die(json_encode(array('outcome' => true)));
-}
-catch(PDOException $ex){
-    die(json_encode(array('outcome' => false, 'message' => 'Unable to connect')));
-}
-if($user->is_loggedin()!="")
-{
- $user->redirect('index.php');
-}
-
-if(isset($_POST['btn-login']))
-{
- $uname = $_POST['txt_uname_email'];
- $umail = $_POST['txt_uname_email'];
- $upass = $_POST['txt_password'];
-
- if($user->login($uname,$umail,$upass))
- {
-  $user->redirect('index.php');
- }
- else
- {
-  $error = "Wrong Details !";
- }
-}
+  require_once '../modules/inlog.php';
  ?>
 </body>
 </html>

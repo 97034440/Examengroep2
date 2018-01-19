@@ -12,8 +12,7 @@ class RegisterModules
 	// }
 
 	public function __construct() {
-    	
-    	$this->pdo = new $connection();
+    	$this->pdo = $pdo;
     }
 
 	private $voorletters;

@@ -1,12 +1,14 @@
 <?php
+require ('../init.php');
 
 class RegisterModules
 {
-	protected $pdo;
+	public $pdo;
 
 	public function __construct() {
-	    $pdo = new PDO('mysql:host=localhost;dbname=examen', 'root', '');
-			$this->pdo = $pdo;
+		$config = require'../config.php';
+		$pdo = connection::connect($config['database']);
+		$this->pdo = $pdo;
 	  }
 
 	private $email;
@@ -23,8 +25,7 @@ class RegisterModules
 		$status = 1;
 		$admin = 1;		
 
-		$stmt = $this->pdo->prepare("INSERT INTO accountgegevens (email, gebruikersnaam, status, admin, wachtwoord) VALUES (". $this->email .", ". $this->gebruikersnaam .", ". $this->status .", ". $this->admin .", ".$this->wachtwoord .")");
-
+		$stmt = $this->pdo->prepare("INSERT INTO accountgegevens (email, gebruikersnaam, status, admin, wachtwoord) VALUES ('. $this->email .', '. $this->gebruikersnaam .', '. $this->status .', '. $this->admin .', '.$this->wachtwoord .')");
         $stmt->execute();
 
         return $stmt->fetch();

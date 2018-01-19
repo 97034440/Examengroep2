@@ -11,4 +11,21 @@ return new querybuilder(
     connection::connect($config['database'])
   );
 
+
+class Init
+{
+
+	private $connection;
+	private $conn;
+
+	function __construct()
+	{
+		$this->connection = new Connection();
+		$this->conn = $this->connection->getConnection();
+	}
+
+	public function getConnection(){
+		return $this->conn;
+	}
+}
 ?>

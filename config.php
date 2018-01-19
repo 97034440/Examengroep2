@@ -6,10 +6,7 @@ return [
       'name' => 'examen',
       'username' => 'root',
       'password' => 'root',
-      'connection' => 'mysql:dbname=examen;host=127.0.0.1',
-      'option' => [
-        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
-      ]
+      'connection' => 'mysql:dbname=examen;host=127.0.0.1'  
     ]
 ]
 ?>

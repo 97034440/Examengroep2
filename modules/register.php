@@ -8,9 +8,13 @@ class RegisterModules
 {
 	private $init;
 
-	function __construct(){
-		$this->init = new Init();
-	}
+	// function __construct(){
+	// 	$this->init = new Init();
+	// }
+
+	public function __construct( PDO $pdo ) {
+    	$this->pdo = $pdo;
+    }
 
 	private $voorletters;
 	private $email;
@@ -34,7 +38,7 @@ class RegisterModules
 		$status = 1;
 		$admin = 1;		
 
-		$stmt = $this->init->getConnection()->prepare("INSERT INTO accountgegevens (email, gebruikersnaam, status, admin, wachtwoord) VALUES (". $this->email .", ". $this->gebruikersnaam .", ". $this->status .", ". $this->admin .", ".$this->wachtwoord .")");
+		$stmt = $this->pdo->prepare("INSERT INTO accountgegevens (email, gebruikersnaam, status, admin, wachtwoord) VALUES (". $this->email .", ". $this->gebruikersnaam .", ". $this->status .", ". $this->admin .", ".$this->wachtwoord .")");
 		// var_dump($this->init->getConnection()->dump_debug_info());
         $stmt->execute();
 

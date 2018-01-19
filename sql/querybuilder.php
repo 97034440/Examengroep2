@@ -6,9 +6,7 @@ protected $pdo;
 
 //constructor heeft database connectie nodig
  public function __construct( PDO $pdo ) {
-
     $this->pdo = $pdo;
-
   }
   //ontvangt de tabelnaam en de classnaam waar je deze aan koppelt
   public function selectAll ($table){

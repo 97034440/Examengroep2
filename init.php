@@ -11,7 +11,6 @@ return new querybuilder(
     connection::connect($config['database'])
   );
 
-<<<<<<< HEAD
 
 class Init
 {
@@ -29,13 +28,4 @@ class Init
 		return $this->conn;
 	}
 }
-=======
-  return new  RegisterModules(
-    //roept static function van de connection class aan
-    //en heeft deze mee aand de querybuilder
-      connection::connect($config['database'])
-    );
-
-
->>>>>>> 18d10556ed46a421d2997e57826fb981540858c2
 ?>

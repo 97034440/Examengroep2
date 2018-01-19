@@ -1,18 +1,14 @@
 <?php
-require'../init.php';
-$var = connection::connect($config['database']);
 
 class RegisterModules
 {
-	private $pdo;
+	protected $pdo;
 
-	// function __construct(){
-	// 	$this->init = new Init();
-	// }
-	public function __construct(PDO $pdo) {
-    	$this->pdo = $pdo;
-  }
-
+	//constructor heeft database connectie nodig
+	 public function __construct() {
+	    $pdo = new PDO('mysql:host=localhost;dbname=examen', 'root', 'root');
+			$this->pdo = $pdo;
+	  }
 	private $voorletters;
 	private $email;
 	private $wachtwoord;

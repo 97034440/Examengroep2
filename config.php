@@ -6,7 +6,7 @@ return [
       'name' => 'examen',
       'username' => 'root',
       'password' => 'root',
-      'connection' => 'mysql:dbname=examen;host=127.0.0.1'
+      'connection' => 'mysql:dbname=examen;host=127.0.0.1'  
     ]
 ]
 ?>

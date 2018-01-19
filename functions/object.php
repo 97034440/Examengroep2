@@ -1,10 +1,11 @@
 <?php
-$query = require'../init.php';
-
+require'../init.php';
+//ik roep de query class aan en stuur de pdo verbinding gegevens mee.
+$query = new querybuilder(connection::connect($config['database']));
 //roept de selectAll function aan van de querybuilder en stuurt de tabelnaam
 //en de classnaam waar je de object aan wilt koppelen.
 $objects = $query->selectAll('object');
-$images = $query->selectSpecific('imagelink', 'objectimage');
+$images = $query->selectSpecific('objectimage', '1');
 
 var_dump($images);
 ?>
@@ -72,7 +73,7 @@ var_dump($images);
            <?php echo '<img src="'.$url.'" alt="">'; ?>
         </li>
         <li>
-            <div>imageid: <?php echo $image->imagelink?></div>
+            <div>imageid: <?php echo $image->id?></div>
         </li>
           <?php endforeach; ?>
     </br>

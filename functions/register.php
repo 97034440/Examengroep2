@@ -3,7 +3,7 @@
 include('../modules/register.php');
 
 class RegisterFunction {
-
+	
 	private $registerModules;
 
 	function __construct(){
@@ -18,20 +18,7 @@ class RegisterFunction {
 			'wachtwoord' => $_POST['wachtwoord']
 		];
 		$add = $this->registerModules->addUser($anw);
-
-
-
-
-
-
-		//$voorletters = $_POST['voorletters'];
-		// $tussenvoegsels = $_POST['tussenvoegsels'];
-		// $achternaam = $_POST['achternaam'];
-		// $gebruikersnaam = $_POST['gebruikersnaam'];
-		// $mobiel = $_POST['mobiel'];
-		// $postcode = $_POST['postcode'];
-		// $rijbewijsnummer = $_POST['rijbewijsnummer'];
-		// $telefoonnummer = $_POST['telefoonnummer'];
+		
 	}
 }
 

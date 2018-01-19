@@ -18,5 +18,11 @@ class connection {
       echo 'Connection failed: ' . $e->getMessage();
     }
   }
+<<<<<<< HEAD
 
+=======
+  public function getConnection(){
+    return $this->conn;
+  }
+>>>>>>> 2572f0fecdfd4949ddc8eda6a8baf614777ea69d
 }

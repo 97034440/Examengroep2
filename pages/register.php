@@ -2,96 +2,125 @@
 <html lang="en">
     <head> 
     	<?php
-  			require_once('init.php');
+    	include('../functions/register.php');
+  		//include('../init.php');
+  		$registerfunction = new RegisterFunction();
   		?>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+		<link rel="stylesheet" type="text/css" href="../vendor/bootstrap/css/bootstrap.css">
 
-		<!-- Website CSS style -->
-		<link rel="stylesheet" type="text/css" href="css/style.css">
+		<!-- CSS -->
+		<link rel="stylesheet" type="text/css" href="../css/style.css">
 
-		<!-- Website Font style -->
+		<!-- CSS -->
 	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
 		
 		<!-- Google Fonts -->
 		<link href='https://fonts.googleapis.com/css?family=Passion+One' rel='stylesheet' type='text/css'>
 		<link href='https://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
 
-		<title>Admin</title>
+		<title>Registreren</title>
 	</head>
 	<body>
+			<!-- Navigation -->
+	    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+	      <div class="container">
+	        <a class="navbar-brand" href="#">Caravan en camper verhuur</a>
+	        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+	          <span class="navbar-toggler-icon"></span>
+	        </button>
+	        <div class="collapse navbar-collapse" id="navbarResponsive">
+	          <ul class="navbar-nav ml-auto">
+	            <li class="nav-item">
+	              <a class="nav-link" href="../index.php">Home</a>
+	            </li>
+	            <li class="nav-item active">
+	              <a class="nav-link" href="pages/register.php">Registreren
+	              	<span class="sr-only">(current)</span>
+	              </a>
+	            </li>
+	            <li class="nav-item">
+	              <a class="nav-link" href="#">Inloggen</a>
+	            </li>
+	          </ul>
+	        </div>
+	      </div>
+	    </nav>
 		<div class="container">
 			<div class="row main">
 				<div class="panel-heading">
 	               <div class="panel-title text-center">
-	               		<h1 class="title">Company Name</h1>
+	               		<h1 class="title">Registreren</h1>
 	               		<hr />
 	               	</div>
 	            </div> 
 				<div class="main-login main-center">
-					<form class="form-horizontal" method="post" action="#">
+					<form class="form-horizontal" method="post" action="../pages/register.php">
 						
-						<div class="form-group">
-							<label for="name" class="cols-sm-2 control-label">Your Name</label>
+<!-- 						<div class="form-group">
+							<label for="naam" class="cols-sm-2 control-label">Naam</label>
 							<div class="cols-sm-10">
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-									<input type="text" class="form-control" name="name" id="name"  placeholder="Enter your Name"/>
+									<input type="text" class="form-control" name="naam" id="name"  placeholder="Voer je naam in"/>
 								</div>
 							</div>
-						</div>
+						</div> -->
 
 						<div class="form-group">
-							<label for="email" class="cols-sm-2 control-label">Your Email</label>
+							<label for="email" class="cols-sm-2 control-label">Email</label>
 							<div class="cols-sm-10">
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
-									<input type="text" class="form-control" name="email" id="email"  placeholder="Enter your Email"/>
+									<input type="text" class="form-control" name="email" id="email"  placeholder="Voer je email in"/>
 								</div>
 							</div>
 						</div>
 
 						<div class="form-group">
-							<label for="username" class="cols-sm-2 control-label">Username</label>
+							<label for="gebruikersnaam" class="cols-sm-2 control-label">Gebruikersnaam</label>
 							<div class="cols-sm-10">
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span>
-									<input type="text" class="form-control" name="username" id="username"  placeholder="Enter your Username"/>
+									<input type="text" class="form-control" name="gebruikersnaam" id="username"  placeholder="Voer je gebruikersnaam in"/>
 								</div>
 							</div>
 						</div>
 
 						<div class="form-group">
-							<label for="password" class="cols-sm-2 control-label">Password</label>
+							<label for="wachtwoord" class="cols-sm-2 control-label">Wachtwoord</label>
 							<div class="cols-sm-10">
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-									<input type="password" class="form-control" name="password" id="password"  placeholder="Enter your Password"/>
+									<input type="password" class="form-control" name="wachtwoord" id="password"  placeholder="Enter your Password"/>
 								</div>
 							</div>
 						</div>
-
+<!-- 
 						<div class="form-group">
-							<label for="confirm" class="cols-sm-2 control-label">Confirm Password</label>
+							<label for="confirm" class="cols-sm-2 control-label">Herhaal wachtwoord</label>
 							<div class="cols-sm-10">
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-									<input type="password" class="form-control" name="confirm" id="confirm"  placeholder="Confirm your Password"/>
+									<input type="password" class="form-control" name="wachtwoord" id="confirm"  placeholder="Confirm your Password"/>
 								</div>
-							</div>
-						</div>
+							</div> -->
+						<!-- </div> -->
 
 						<div class="form-group ">
-							<button type="button" class="btn btn-primary btn-lg btn-block login-button">Register</button>
+							<button type="submit" class="btn btn-primary btn-lg btn-block login-button" name="submit">Registreer</button>
 						</div>
-						<div class="login-register">
-				            <a href="index.php">Login</a>
-				         </div>
+						<?php
+							if(isset($_POST['submit'])) {
+								$registerfunction->saveregisterAction();
+								
+							}
+						?>
 					</form>
 				</div>
 			</div>
 		</div>
-
-		<script type="text/javascript" src="assets/js/bootstrap.js"></script>
+		<script type="text/javascript" src="../vendor/bootstrap/js/bootstrap.js"></script>
 	</body>
 </html>
+

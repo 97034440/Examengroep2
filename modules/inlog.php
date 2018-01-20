@@ -13,11 +13,11 @@ if($user->is_loggedin()!="")  // als de gebruiker ingelogd is dan verwijst die n
 
 if(isset($_POST['btn-login']))
 {
- $uname = $_POST['txt_uname']; // was txt_uname_email
- $umail = $_POST['txt_uname_email'];
- $upass = $_POST['txt_password'];
+ $gebruikersnaam = $_POST['gebruikersnaam']; // was txt_gebruikersnaam_email
+ $umail = $_POST['gebruikersnaam_email'];
+ $upass = $_POST['password'];
 
- if($user->login($uname,$umail,$upass))
+ if($user->login($gebruikersnaam,$umail,$upass))
  {
   $user->redirect('index.php');
  }

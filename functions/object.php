@@ -60,25 +60,22 @@ $objects = $query->selectAll('object');
               </div>
             </div>
 
-            <div class="col-lg-3">
-
-
-
-              <div>objectid: <?php echo $object->id;?></div>
-          <div>Kenteken: <?php echo $object->kenteken;?></div>
-          <div>Chassinummer: <?php echo $object->chassinummer;?></div>
-          <div>Camper/Caravan: <?php echo $object->object_type;?></div>
-          <div>Merk: <?php echo $object->merk;?></div>
-          <div>Type: <?php echo $object->type;?></div>
-          <div>Bouwjaar: <?php echo $object->bouwjaar;?></div>
-          <div>Massa inventaris: <?php echo $object->mass_inventaris;?></div>
-          <div>Max massa:<?php echo $object->massa_max;?></div>
-          <div>Lengte tot: <?php echo $object->lengte_tot?></div>
-          <div>Lengte opbouw: <?php echo $object->lengte_opbouw?></div>
-          <div>Hoogte: <?php echo $object->hoogte?></div>
-          <div>Benodigde: <?php echo $object->rijbewijs_benodigd?></div>
-          <div>Prijs per dag: <?php echo $object->prijs_dag?></div>
-          <div>Prijs per week: <?php echo $object->prijs_week?></div>
+          <div class="col-lg-3">
+            <div><h1><?php echo $object->object_type;?></h1></div>
+            <div>objectid: <?php echo $object->id;?></div>
+            <div>Kenteken: <?php echo $object->kenteken;?></div>
+            <div>Chassinummer: <?php echo $object->chassinummer;?></div>
+            <div>Merk: <?php echo $object->merk;?></div>
+            <div>Type: <?php echo $object->type;?></div>
+            <div>Bouwjaar: <?php echo $object->bouwjaar;?></div>
+            <div>Massa inventaris: <?php echo $object->mass_inventaris;?></div>
+            <div>Max massa:<?php echo $object->massa_max;?></div>
+            <div>Lengte tot: <?php echo $object->lengte_tot?></div>
+            <div>Lengte opbouw: <?php echo $object->lengte_opbouw?></div>
+            <div>Hoogte: <?php echo $object->hoogte?></div>
+            <div>Benodigde: <?php echo $object->rijbewijs_benodigd?></div>
+            <div>Prijs per dag: <?php echo $object->prijs_dag?></div>
+            <div>Prijs per week: <?php echo $object->prijs_week?></div>
           </div>
         </div>
       </div>

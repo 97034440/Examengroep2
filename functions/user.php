@@ -1,6 +1,6 @@
 <?php
 
-include('../modules/inlog.php');
+// include('../modules/inlog.php');
 
 class User
 {

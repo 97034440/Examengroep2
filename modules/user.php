@@ -12,7 +12,7 @@ class User
     {
        try
        {
-          $stmt = $this->pdo->prepare("SELECT * FROM users WHERE user_name=:uname LIMIT 1");
+          $stmt = $this->pdo->prepare("SELECT * FROM accountgegevens WHERE gebruikersnaam = :gebruikersnaam AND wachtwoord = :wachtwoord");
           $stmt->execute(array(':uname'=>$uname, ':umail'=>$umail));
           $userRow=$stmt->fetch(PDO::FETCH_ASSOC);
           if($stmt->rowCount() > 0)

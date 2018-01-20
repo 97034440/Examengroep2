@@ -37,7 +37,7 @@ connection::connect($config['database']);
             <a class="nav-link" href="../index.php">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="../pages/register.php">Registreren
+            <a class="nav-link" href="../pages/register_accountgegevens.php">Registreren
             </a>
           </li>
           <li class="nav-item active"> <!-- Hier is te zien dat de op de inlogpagina zit -->

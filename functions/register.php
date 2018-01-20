@@ -14,10 +14,32 @@ class RegisterFunction {
 		$anw = [
 			'email' => $_POST['email'],
 			'gebruikersnaam' => $_POST['gebruikersnaam'],
-			'wachtwoord' => $_POST['wachtwoord']
+			'wachtwoord' => $_POST['wachtwoord'],
+			'achternaam' => $_POST['achternaam'],
+			'mobiel' => $_POST['mobiel'],
+			'postcode' => $_POST['postcode'],
+			'telefoonnummer' => $_POST['telefoonnummer'],
+			'tussenvoegsel' => $_POST['tussenvoegsel'],
+			'voorletters' => $_POST['voorletters'],
+			'adres' => $_POST['adres'],
+			'woonplaats' => $_POST['woonplaats']
 		];
-		$add = $this->registerModules->addUser($anw);
+		$add = $this->registerModules->addAccountgegevens($anw);
 	}
+
+	// public function saveklantregisterAction() {
+	// 	$anw = [
+	// 		'achternaam' => $_POST['achternaam'],
+	// 		'mobiel' => $_POST['mobiel'],
+	// 		'postcode' => $_POST['postcode'],
+	// 		'telefoonnummer' => $_POST['telefoonnummer'],
+	// 		'tussenvoegsel' => $_POST['tussenvoegsel'],
+	// 		'voorletters' => $_POST['voorletters'],
+	// 		'adres' => $_POST['adres'],
+	// 		'woonplaats' => $_POST['woonplaats']
+	// 	];
+	// 	$add = $this->registerModules->addKlantgegevens($anw);
+	// }
 }
 
 

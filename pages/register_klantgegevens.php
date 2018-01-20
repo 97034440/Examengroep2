@@ -3,7 +3,6 @@
     <head> 
     	<?php
     	include('../functions/register.php');
-  		//include('../init.php');
   		$registerfunction = new RegisterFunction();
   		?>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -55,9 +54,7 @@
 	               	</div>
 	            </div> 
 				<div class="main-login main-center">
-					<form class="form-horizontal" method="post" action="../pages/register.php">
-						
-
+					<form class="form-horizontal" method="post" action="../pages/register_klantgegevens.php">
 						<div class="form-group">
 							<label for="naam" class="cols-sm-2 control-label">Voorletters</label>
 							<div class="cols-sm-10">
@@ -82,53 +79,6 @@
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
 									<input type="text" class="form-control" name="achternaam" id="achternaam"  placeholder="Voer je achternaam in"/>
-								</div>
-							</div>
-						</div>
-						<div class="form-group">
-							<label for="email" class="cols-sm-2 control-label">Email</label>
-							<div class="cols-sm-10">
-								<div class="input-group">
-									<span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
-									<input type="text" class="form-control" name="email" id="email"  placeholder="Voer je email in"/>
-								</div>
-							</div>
-						</div>
-
-						<div class="form-group">
-							<label for="gebruikersnaam" class="cols-sm-2 control-label">Gebruikersnaam</label>
-							<div class="cols-sm-10">
-								<div class="input-group">
-									<span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span>
-									<input type="text" class="form-control" name="gebruikersnaam" id="username"  placeholder="Voer je gebruikersnaam in"/>
-								</div>
-							</div>
-						</div>
-
-						<div class="form-group">
-							<label for="wachtwoord" class="cols-sm-2 control-label">Wachtwoord</label>
-							<div class="cols-sm-10">
-								<div class="input-group">
-									<span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-									<input type="password" class="form-control" name="wachtwoord" id="password"  placeholder="Enter your Password"/>
-								</div>
-							</div>
-						</div>
-						<div class="form-group">
-							<label for="naam" class="cols-sm-2 control-label">Mobiel</label>
-							<div class="cols-sm-10">
-								<div class="input-group">
-									<span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-									<input type="text" class="form-control" name="mobiel" id="mobiel"  placeholder="Voer je mobiel in"/>
-								</div>
-							</div>
-						</div>
-						<div class="form-group">
-							<label for="naam" class="cols-sm-2 control-label">Telefoonnummer</label>
-							<div class="cols-sm-10">
-								<div class="input-group">
-									<span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-									<input type="text" class="form-control" name="telefoonnummer" id="telefoonnummer"  placeholder="Voer je telefoonnummer in"/>
 								</div>
 							</div>
 						</div>
@@ -159,23 +109,31 @@
 								</div>
 							</div>
 						</div>
-<!-- 
 						<div class="form-group">
-							<label for="confirm" class="cols-sm-2 control-label">Herhaal wachtwoord</label>
+							<label for="naam" class="cols-sm-2 control-label">Mobiel</label>
 							<div class="cols-sm-10">
 								<div class="input-group">
-									<span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-									<input type="password" class="form-control" name="wachtwoord" id="confirm"  placeholder="Confirm your Password"/>
+									<span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+									<input type="text" class="form-control" name="mobiel" id="mobiel"  placeholder="Voer je mobiel in"/>
 								</div>
-							</div> -->
-						<!-- </div> -->
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="naam" class="cols-sm-2 control-label">Telefoonnummer</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+									<input type="text" class="form-control" name="telefoonnummer" id="telefoonnummer"  placeholder="Voer je telefoonnummer in"/>
+								</div>
+							</div>
+						</div>
 
 						<div class="form-group ">
 							<button type="submit" class="btn btn-primary btn-lg btn-block login-button" name="submit">Registreer</button>
 						</div>
 						<?php
 							if(isset($_POST['submit'])) {
-								$registerfunction->saveregisterAction();
+								$registerfunction->saveklantregisterAction();
 								
 							}
 						?>

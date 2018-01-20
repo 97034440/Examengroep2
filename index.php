@@ -36,7 +36,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="pages/register.php">Registreren</a>
+              <a class="nav-link" href="pages/register_accountgegevens.php">Registreren</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="pages/inlog.php">Inloggen</a>

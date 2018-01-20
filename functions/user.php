@@ -1,4 +1,7 @@
 <?php
+
+include('../modules/inlog.php');
+
 class User
 {
     protected $pdo;
@@ -8,12 +11,15 @@ class User
       $this->pdo = $pdo;
     }
 
-    public function login($uname,$upass)
+    private $gebruikersnaam;
+    private $wachtwoord;
+
+    public function login($gebruikersnaam,$upass)
     {
        try
        {
           $stmt = $this->pdo->prepare("SELECT * FROM accountgegevens WHERE gebruikersnaam = :gebruikersnaam AND wachtwoord = :wachtwoord");
-          $stmt->execute(array(':uname'=>$uname, ':umail'=>$umail));
+          $stmt->execute(array(':gebruikersnaam'=>$gebruikersnaam, ':umail'=>$umail));
           $userRow=$stmt->fetch(PDO::FETCH_ASSOC);
           if($stmt->rowCount() > 0)
           {
@@ -54,4 +60,8 @@ class User
         return true;
    }
 }
+
+// $stmt = $this->pdo->prepare("INSERT INTO accountgegevens (gebruikersnaam, wachtwoord) VALUES (:gebruikersnaam, :wachtwoord)");
+//     return $stmt->execute(array(':gebruikersnaam' => $gebruikersnaam, ':wachtwoord' => $wachtwoord));
+
 ?>

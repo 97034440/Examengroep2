@@ -1,12 +1,13 @@
-<?php
-require_once '../init.php'; //was dbconfig.php
-session_start();
-connection::connect($config['database']);
-
-?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
+  <?php
+  require_once '../init.php'; //was dbconfig.php
+  session_start();
+  connection::connect($config['database']);
+
+
+  ?>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="../vendor/bootstrap/css/bootstrap.css">
 
@@ -55,16 +56,14 @@ connection::connect($config['database']);
              <h1 class="title">Inloggen</h1>
            </div>
             <div class="form-group">
-             <input type="text" class="form-control" name="txt_uname" placeholder="Gebruikersnaam" required />
+             <input type="text" class="form-control" name="gebruikersnaam" placeholder="Gebruikersnaam" required />
             </div>
             <div class="form-group">
-             <input type="password" class="form-control" name="txt_password" placeholder="Wachtwoord" required />
+             <input type="password" class="form-control" name="password" placeholder="Wachtwoord" required />
             </div>
             <div class="clearfix"></div><hr />
             <div class="form-group">
-             <button type="submit" name="submit" class="btn btn-primary btn-lg btn-block login-button">
-                Login
-                </button>
+             <button type="submit" name="submit" class="btn btn-primary btn-lg btn-block login-button">Login</button>
             </div>
             <br />
             <label>Nog geen account? <a href="../pages/register.php">Registreer</a></label>
@@ -72,7 +71,8 @@ connection::connect($config['database']);
        </div>
 </div>
 <?php
-  require_once '../modules/inlog.php';
+  require_once '../functions/user.php';
  ?>
+
 </body>
 </html>

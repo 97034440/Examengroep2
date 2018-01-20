@@ -8,6 +8,4 @@ return [
       'connection' => 'mysql:dbname=examen;host=127.0.0.1'
     ]
 ]
-
-
 ?>

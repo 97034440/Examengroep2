@@ -1,5 +1,5 @@
 <?php
-class querybuilder {
+class Querybuilder {
 
 protected $pdo;
 
@@ -17,12 +17,9 @@ protected $pdo;
     return $statement->fetchAll(PDO::FETCH_CLASS);
     // alles uit de database lezen.
   }
-  public function selectSpecific ($tablename, $fromname ){
+  public function selectImage ($table, $row, $objectid){
     //selecteerd alles uit de tabelnaam die je hebt meegegeven.
-    $statement = $this->pdo->prepare("select count ($fromname) from {$tablename}
-    inner join objectimage on ($fromname) = ($fromname) where
-
-    WHERE imageid = {$fromname}");
+    $statement = $this->pdo->prepare("SELECT * FROM {$table} WHERE {$row} = {$objectid};");
 
     // statement uitvoeren.
     $statement->execute();

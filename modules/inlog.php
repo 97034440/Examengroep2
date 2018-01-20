@@ -4,7 +4,7 @@ try{ // maakt de connectie aan met de database
     die(json_encode(array('outcome' => true)));
 }
 catch(PDOException $ex){
-    die(json_encode(array('outcome' => false, 'message' => 'Unable to connect'))); // beeindigd de PDO
+    die(json_encode(array('outcome' => false, 'message' => 'Kan geen verbinding maken'))); // als het opgevangen word
 }
 if($user->is_loggedin()!="")  // als de gebruiker ingelogd is dan verwijst die naar index.php
 {

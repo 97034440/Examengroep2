@@ -12,13 +12,11 @@ class RegisterFunction {
 
 	public function saveregisterAction() {
 		$anw = [
-			// 'naam' => $_POST['naam'],
 			'email' => $_POST['email'],
 			'gebruikersnaam' => $_POST['gebruikersnaam'],
 			'wachtwoord' => $_POST['wachtwoord']
 		];
 		$add = $this->registerModules->addUser($anw);
-		
 	}
 }
 

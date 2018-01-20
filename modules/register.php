@@ -22,13 +22,13 @@ class RegisterModules
 		$email = $anw['email'];
 		$gebruikersnaam = $anw['gebruikersnaam'];
 		$wachtwoord = $anw['wachtwoord'];
+		// $hash = password_hash($wachtwoord, PASSWORD_DEFAULT);
 		$status = 1;
-		$admin = 1;		
+		$admin = 0;		
 
-		$stmt = $this->pdo->prepare("INSERT INTO accountgegevens (email, gebruikersnaam, status, admin, wachtwoord) VALUES ('. $this->email .', '. $this->gebruikersnaam .', '. $this->status .', '. $this->admin .', '.$this->wachtwoord .')");
-        $stmt->execute();
 
-        return $stmt->fetch();
+		$stmt = $this->pdo->prepare("INSERT INTO accountgegevens (email, gebruikersnaam, status, admin, wachtwoord) VALUES (:email, :gebruikersnaam, :status, :admin, :wachtwoord)");
+        return $stmt->execute(array(':email' => $email, ':gebruikersnaam' => $gebruikersnaam, ':status' => $status, ':admin' => $admin, ':wachtwoord' => $wachtwoord));
 	}
 }
 ?>

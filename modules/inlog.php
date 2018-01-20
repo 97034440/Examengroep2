@@ -1,4 +1,6 @@
+
 <?php
+/*
 try{ // maakt de connectie aan met de database
     $dbh = connection::connect($config['database']);
     die(json_encode(array('outcome' => true)));
@@ -26,4 +28,5 @@ if(isset($_POST['btn-login']))
   $error = "Verkeede gegevens!";
  }
 }
+/*
 ?>

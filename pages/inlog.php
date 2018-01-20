@@ -6,7 +6,7 @@
   session_start();
   connection::connect($config['database']);
 
-  $user = new User();
+
   ?>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="../vendor/bootstrap/css/bootstrap.css">

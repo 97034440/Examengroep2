@@ -6,12 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-
     <title>De Dissel</title>
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
     <!-- Custom styles for this template -->
     <link href="css/shop-homepage.css" rel="stylesheet">
 
@@ -33,7 +32,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="pages/register_accountgegevens.php">Registreren</a>
+              <a class="nav-link" href="pages/register.php">Registreren</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="pages/inlog.php">Inloggen</a>
@@ -49,6 +48,7 @@
           <?php
       include('functions/object.php');
       ?>
+
     </div>
     <!-- /.container -->
 

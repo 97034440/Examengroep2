@@ -118,7 +118,7 @@
 							<label for="naam" class="cols-sm-2 control-label">Mobiel</label>
 							<div class="cols-sm-10">
 								<div class="input-group">
-									<span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+									<span class="input-group-addon"><i class="fa fa-phone fa" aria-hidden="true"></i></span>
 									<input type="text" class="form-control" name="mobiel" id="mobiel"  placeholder="Voer je mobiel in"/>
 								</div>
 							</div>
@@ -127,7 +127,7 @@
 							<label for="naam" class="cols-sm-2 control-label">Telefoonnummer</label>
 							<div class="cols-sm-10">
 								<div class="input-group">
-									<span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+									<span class="input-group-addon"><i class="fa fa-phone fa" aria-hidden="true"></i></span>
 									<input type="text" class="form-control" name="telefoonnummer" id="telefoonnummer"  placeholder="Voer je telefoonnummer in"/>
 								</div>
 							</div>
@@ -136,7 +136,7 @@
 							<label for="naam" class="cols-sm-2 control-label">Adres</label>
 							<div class="cols-sm-10">
 								<div class="input-group">
-									<span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+									<span class="input-group-addon"><i class="fa fa-building-o fa" aria-hidden="true"></i></span>
 									<input type="text" class="form-control" name="adres" id="adres"  placeholder="Voer je adres in"/>
 								</div>
 							</div>
@@ -145,7 +145,7 @@
 							<label for="naam" class="cols-sm-2 control-label">Postcode</label>
 							<div class="cols-sm-10">
 								<div class="input-group">
-									<span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+									<span class="input-group-addon"><i class="fa fa-building-o fa" aria-hidden="true"></i></span>
 									<input type="text" class="form-control" name="postcode" id="postcode"  placeholder="Voer je postcode in"/>
 								</div>
 							</div>
@@ -154,7 +154,7 @@
 							<label for="naam" class="cols-sm-2 control-label">Woonplaats</label>
 							<div class="cols-sm-10">
 								<div class="input-group">
-									<span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+									<span class="input-group-addon"><i class="fa fa-building-o fa" aria-hidden="true"></i></span>
 									<input type="text" class="form-control" name="woonplaats" id="woonplaats"  placeholder="Voer je woonplaats in"/>
 								</div>
 							</div>

@@ -1,5 +1,4 @@
 <?php
-
 //ik roep de query class aan en stuur de pdo verbinding gegevens mee.
 $query = new Querybuilder(connection::connect($config['database']));
 //roept de selectAll function aan van de querybuilder en stuurt de tabelnaam
@@ -14,14 +13,9 @@ $objects = $query->selectAll('object');
       $objectid = $object->chassinummer;
       $objectidhref = "#".$object->chassinummer;
     ?>
-
-    <div class="container">
-
+    <div class="container objectload">
       <div class="row">
-
         <div class="col-lg-9">
-
-
           <?php echo '<div id="'.$objectid.'" class="carousel slide my-4" data-ride="carousel">' ?>
             <ol class="carousel-indicators">
               <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -80,8 +74,13 @@ $objects = $query->selectAll('object');
         </div>
       </div>
     <?php endforeach; ?>
+    <a class="buttons" href="#" id="loadMore">Load More</a>
 
-
-
+    <p class="buttons" class="totop">
+      <a href="#top">Back to top</a>
+    </p>
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+    <script  src="js/loadmore.js">
+</script>
 
 </html>

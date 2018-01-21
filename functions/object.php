@@ -31,14 +31,14 @@ $objects = $query->selectAll('object');
                 $url = $image->imagelink;
                    if ($first == true) {
                      echo '<div class="carousel-item active">
-                       <img class="d-block img" height="500" width="100%" src="'.$url.'" alt="First slide">
+                       <img class="d-block img" height="500" width="100%" src="images/'.$url.'" alt="First slide">
                      </div>';
                      $first = false;
                    }
                    elseif ($first == false) {
                    echo
                    '<div class="carousel-item">
-                     <img class="d-block img" height="500" width="100%" src="'.$url.'" alt="First slide">
+                     <img class="d-block img" height="500" width="100%" src="images/'.$url.'" alt="First slide">
                    </div>'; }
                    ?>
                   <?php endforeach; ?>
@@ -74,10 +74,10 @@ $objects = $query->selectAll('object');
         </div>
       </div>
     <?php endforeach; ?>
-    <a class="buttons" href="#" id="loadMore">Load More</a>
+    <a class="buttons" href="#" id="loadMore">Laad meer</a>
 
     <p class="buttons" class="totop">
-      <a href="#top">Back to top</a>
+      <a href="#top">terug naar boven</a>
     </p>
     <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
     <script  src="js/loadmore.js">

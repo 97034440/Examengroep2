@@ -10,7 +10,7 @@ protected $pdo;
   //ontvangt de tabelnaam en de classnaam waar je deze aan koppelt
   public function selectAll ($table){
     //selecteerd alles uit de tabelnaam die je hebt meegegeven.
-    $statement = $this->pdo->prepare("select * from {$table}");
+    $statement = $this->pdo->prepare("select * from {$table} ORDER BY id ASC");
     // statement uitvoeren.
     $statement->execute();
 

@@ -1,8 +1,8 @@
 $(function () {
-    $(".objectload").slice(0, 4).show();
+    $(".objectload").slice(0, 3).show();
     $("#loadMore").on('click', function (e) {
         e.preventDefault();
-        $(".objectload:hidden").slice(0, 4).slideDown();
+        $(".objectload:hidden").slice(0, 1).slideDown();
         if ($(".objectload:hidden").length == 0) {
             $("#load").fadeOut('slow');
         }

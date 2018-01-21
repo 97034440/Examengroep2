@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head> 
+    <head>
     	<?php
     	include('../functions/register.php');
   		//include('../init.php');
@@ -14,7 +14,7 @@
 
 		<!-- CSS -->
 	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
-		
+
 		<!-- Google Fonts -->
 		<link href='https://fonts.googleapis.com/css?family=Passion+One' rel='stylesheet' type='text/css'>
 		<link href='https://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
@@ -40,7 +40,7 @@
 	              </a>
 	            </li>
 	            <li class="nav-item">
-	              <a class="nav-link" href="../pages/inlog.php">Inloggen</a>
+	              <a class="nav-link" href="../pages/login.php">Inloggen</a>
 	            </li>
 	          </ul>
 	        </div>
@@ -53,10 +53,10 @@
 	               		<h1 class="title">Registreren</h1>
 	               		<hr />
 	               	</div>
-	            </div> 
+	            </div>
 				<div class="main-login main-center">
 					<form class="form-horizontal" method="post" action="../pages/register.php">
-						
+
 
 						<div class="form-group">
 							<label for="naam" class="cols-sm-2 control-label">Voorletters</label>
@@ -159,7 +159,7 @@
 								</div>
 							</div>
 						</div>
-<!-- 
+<!--
 						<div class="form-group">
 							<label for="confirm" class="cols-sm-2 control-label">Herhaal wachtwoord</label>
 							<div class="cols-sm-10">
@@ -176,7 +176,7 @@
 						<?php
 							if(isset($_POST['submit'])) {
 								$registerfunction->saveregisterAction();
-								
+
 							}
 						?>
 					</form>
@@ -186,4 +186,3 @@
 		<script type="text/javascript" src="../vendor/bootstrap/js/bootstrap.js"></script>
 	</body>
 </html>
-

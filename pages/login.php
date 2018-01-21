@@ -1,7 +1,4 @@
-<?php
-
- ?>
- <!DOCTYPE html>
+<!DOCTYPE html>
  <html>
  <head>
 <?php

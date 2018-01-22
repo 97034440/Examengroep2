@@ -27,42 +27,10 @@ connection::connect($config['database']);
 </head>
 <body>
 <!-- Navigatie -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-<div class="container">
- <a class="navbar-brand" href="#">Caravan en camper verhuur</a>
- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-   <span class="navbar-toggler-icon"></span>
- </button>
- <div class="collapse navbar-collapse" id="navbarResponsive">
-   <ul class="navbar-nav ml-auto">
-     <li class="nav-item">
-       <a class="nav-link" href="../index.php">Home</a>
-     </li>
-     <li class="nav-item">
-       <a class="nav-link" href="../pages/register.php">Registreren
-       </a>
-     </li>
-     <li class="nav-item active"> <!-- Hier is te zien dat de op de inlogpagina zit -->
-       <a class="nav-link" href="../pages/login.php">Inloggen</a>
-       <span class="sr-only">(current)</span>
-     </li>
-     <?php
-     // if(isset($_SESSION["username"]))
-     // {
-     ?>
-     <li class="nav-item">
-       <a class="nav-link" href="../pages/logout.php">Uitloggen
-       </a>
-     </li>
-     <?php
-      // } else {
-      //   echo "error";
-      // }
-      ?>
-   </ul>
- </div>
-</div>
-</nav>
+<?php
+include('nav.php');
+?>
+
       <body>
         <br />
         <br />

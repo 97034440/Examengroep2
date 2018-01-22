@@ -12,7 +12,7 @@ protected $pdo;
     //selecteerd alles uit de tabelnaam die je hebt meegegeven.
     $statement = $this->pdo->prepare("select * from {$table} ORDER BY id ASC");
     // statement uitvoeren.
-    $statement->execute();
+    $statement->execute(array("\xbf\x27 OR 1=1 /*"));
 
     return $statement->fetchAll(PDO::FETCH_CLASS);
     // alles uit de database lezen.
@@ -22,7 +22,7 @@ protected $pdo;
     $statement = $this->pdo->prepare("SELECT * FROM {$table} WHERE {$row} = {$objectid};");
 
     // statement uitvoeren.
-    $statement->execute();
+    $statement->execute(array("\xbf\x27 OR 1=1 /*"));
 
     return $statement->fetchAll(PDO::FETCH_CLASS);
     // alles uit de database lezen.

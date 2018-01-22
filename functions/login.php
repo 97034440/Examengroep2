@@ -12,7 +12,7 @@
  session_start();
  $host = "localhost";
  $username = "root";
- $password = "root";
+ $password = "";
  $database = "examen";
  $message = "";
  try

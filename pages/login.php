@@ -57,7 +57,7 @@ connection::connect($config['database']);
                 if(isset($message))
                 {
                      echo '<label class="text-danger">'.$message.'</label>';
-                }
+                }  // geeft de meldingen aan als je niet kan inloggen
                 ?>
                 <h3 align="">Inloggen</h3><br />
                 <form method="post">

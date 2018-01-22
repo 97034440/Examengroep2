@@ -24,6 +24,7 @@ connection::connect($config['database']);
 <title>Login</title>
 <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" type="text/css"  />
 <link rel="stylesheet" href="style.css" type="text/css"  />
+<script src='https://www.google.com/recaptcha/api.js'></script>
 </head>
 <body>
 <!-- Navigatie -->
@@ -83,6 +84,7 @@ connection::connect($config['database']);
                      <label>Wachtwoord</label>
                      <input type="password" name="password" class="form-control" />
                      <br />
+                     <div class="g-recaptcha" data-sitekey="6LfM6kEUAAAAAIScEuUGwfrywBPjEupp6O-uNWTZ"></div>
                      <input type="submit" name="login" class="btn btn-info" value="Login" />
                 </form>
            </div>

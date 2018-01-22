@@ -63,7 +63,7 @@
 							<div class="cols-sm-10">
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-									<input type="text" class="form-control" name="voorletters" id="voorletters"  placeholder="Voer je naam in"/>
+									<input type="text" class="form-control" name="voorletters" id="voorletters" required="required" placeholder="Voer je naam in"/>
 								</div>
 							</div>
 						</div>
@@ -81,7 +81,7 @@
 							<div class="cols-sm-10">
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-									<input type="text" class="form-control" name="achternaam" id="achternaam"  placeholder="Voer je achternaam in"/>
+									<input type="text" class="form-control" name="achternaam" id="achternaam" required="required" placeholder="Voer je achternaam in"/>
 								</div>
 							</div>
 						</div>
@@ -90,7 +90,7 @@
 							<div class="cols-sm-10">
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
-									<input type="text" class="form-control" name="email" id="email"  placeholder="Voer je email in"/>
+									<input type="text" class="form-control" name="email" id="email" required="required" placeholder="Voer je email in"/>
 								</div>
 							</div>
 						</div>
@@ -100,7 +100,7 @@
 							<div class="cols-sm-10">
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span>
-									<input type="text" class="form-control" name="gebruikersnaam" id="username"  placeholder="Voer je gebruikersnaam in"/>
+									<input type="text" class="form-control" name="gebruikersnaam" id="username" required="required" placeholder="Voer je gebruikersnaam in"/>
 								</div>
 							</div>
 						</div>
@@ -110,7 +110,7 @@
 							<div class="cols-sm-10">
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-									<input type="password" class="form-control" name="wachtwoord" id="password"  placeholder="Enter your Password"/>
+									<input type="password" class="form-control" name="wachtwoord" id="password" required="required" placeholder="Enter your Password"/>
 								</div>
 							</div>
 						</div>
@@ -118,8 +118,8 @@
 							<label for="naam" class="cols-sm-2 control-label">Mobiel</label>
 							<div class="cols-sm-10">
 								<div class="input-group">
-									<span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-									<input type="text" class="form-control" name="mobiel" id="mobiel"  placeholder="Voer je mobiel in"/>
+									<span class="input-group-addon"><i class="fa fa-phone fa" aria-hidden="true"></i></span>
+									<input type="text" class="form-control" name="mobiel" id="mobiel" required="required" placeholder="Voer je mobiel in"/>
 								</div>
 							</div>
 						</div>
@@ -127,8 +127,8 @@
 							<label for="naam" class="cols-sm-2 control-label">Telefoonnummer</label>
 							<div class="cols-sm-10">
 								<div class="input-group">
-									<span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-									<input type="text" class="form-control" name="telefoonnummer" id="telefoonnummer"  placeholder="Voer je telefoonnummer in"/>
+									<span class="input-group-addon"><i class="fa fa-phone fa" aria-hidden="true"></i></span>
+									<input type="text" class="form-control" name="telefoonnummer" id="telefoonnummer" placeholder="Voer je telefoonnummer in"/>
 								</div>
 							</div>
 						</div>
@@ -136,8 +136,8 @@
 							<label for="naam" class="cols-sm-2 control-label">Adres</label>
 							<div class="cols-sm-10">
 								<div class="input-group">
-									<span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-									<input type="text" class="form-control" name="adres" id="adres"  placeholder="Voer je adres in"/>
+									<span class="input-group-addon"><i class="fa fa-building-o fa" aria-hidden="true"></i></span>
+									<input type="text" class="form-control" name="adres" id="adres" required="required" placeholder="Voer je adres in"/>
 								</div>
 							</div>
 						</div>
@@ -145,8 +145,8 @@
 							<label for="naam" class="cols-sm-2 control-label">Postcode</label>
 							<div class="cols-sm-10">
 								<div class="input-group">
-									<span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-									<input type="text" class="form-control" name="postcode" id="postcode"  placeholder="Voer je postcode in"/>
+									<span class="input-group-addon"><i class="fa fa-building-o fa" aria-hidden="true"></i></span>
+									<input type="text" class="form-control" name="postcode" id="postcode" required="required" placeholder="Voer je postcode in"/>
 								</div>
 							</div>
 						</div>
@@ -154,10 +154,49 @@
 							<label for="naam" class="cols-sm-2 control-label">Woonplaats</label>
 							<div class="cols-sm-10">
 								<div class="input-group">
-									<span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-									<input type="text" class="form-control" name="woonplaats" id="woonplaats"  placeholder="Voer je woonplaats in"/>
+									<span class="input-group-addon"><i class="fa fa-building-o fa" aria-hidden="true"></i></span>
+									<input type="text" class="form-control" name="woonplaats" id="woonplaats" required="required" placeholder="Voer je woonplaats in"/>
 								</div>
 							</div>
+						</div>
+						<div class="form-group">
+							<label for="naam" class="cols-sm-2 control-label">Rijbewijsnummer</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-car fa" aria-hidden="true"></i></span>
+									<input type="text" class="form-control" name="rijbewijsnummer" id="rijbewijsnummer" required="required" placeholder="Voer je rijbewijsnummer in"/>
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="naam" class="cols-sm-2 control-label">Rijbewijs afgifte</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-car fa" aria-hidden="true"></i></span>
+									<input type="text" class="form-control" name="rijbewijs_afgifte" required="required" id="rijbewijsafgifte" placeholder="Voer de datum rijbewijs afgifte in"/>
+								</div>
+							</div>
+							<p><small>Voorbeeld invoer: 19-01-2018</small></p>
+						</div>
+						<div class="form-group">
+							<label for="naam" class="cols-sm-2 control-label">Rijbewijs geldig tot</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-car fa" aria-hidden="true"></i></span>
+									<input type="text" class="form-control" name="rijbewijs_geldigtot" id="rijbewijsgeldigtot" required="required" placeholder="Voer de datum rijbewijs geldig tot in"/>
+								</div>
+							</div>
+							<p><small>Voorbeeld invoer: 19-01-2023</small></p>
+						</div>
+						<div class="form-group">
+							<label for="naam" class="cols-sm-2 control-label">Rijbewijs type</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-car fa" aria-hidden="true"></i></span>
+									<input type="text" class="form-control" name="rijbewijs_type" id="rijbewijstype" required="required" placeholder="Voer je rijbewijs type(s) in"/>
+								</div>
+							</div>
+							<p><small>Voorbeeld invoer: AM, B, C</small></p>
 						</div>
 <!--
 						<div class="form-group">

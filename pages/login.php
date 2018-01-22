@@ -46,6 +46,19 @@ connection::connect($config['database']);
        <a class="nav-link" href="../pages/login.php">Inloggen</a>
        <span class="sr-only">(current)</span>
      </li>
+     <?php 
+     // if(isset($_SESSION["username"]))
+     // {
+     ?>
+     <li class="nav-item">
+       <a class="nav-link" href="../pages/logout.php">Uitloggen
+       </a>
+     </li>
+     <?php 
+      // } else {
+      //   echo "error";
+      // }
+      ?>
    </ul>
  </div>
 </div>

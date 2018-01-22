@@ -46,7 +46,7 @@ connection::connect($config['database']);
        <a class="nav-link" href="../pages/login.php">Inloggen</a>
        <span class="sr-only">(current)</span>
      </li>
-     <?php 
+     <?php
      // if(isset($_SESSION["username"]))
      // {
      ?>
@@ -54,7 +54,7 @@ connection::connect($config['database']);
        <a class="nav-link" href="../pages/logout.php">Uitloggen
        </a>
      </li>
-     <?php 
+     <?php
       // } else {
       //   echo "error";
       // }
@@ -64,6 +64,9 @@ connection::connect($config['database']);
 </div>
 </nav>
       <body>
+        <br />
+        <br />
+        <br />
            <br />
            <div class="container" style="width:500px;">
                 <?php

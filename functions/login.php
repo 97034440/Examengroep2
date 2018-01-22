@@ -1,5 +1,5 @@
 <?php
-// $config = require'../config.php';
+
 // require'../sql/connection.php';
 //
 // $pdo = connection::connect($config['database']);
@@ -10,14 +10,9 @@
 // var_dump($obj);
 
  session_start();
- $host = "localhost";
- $username = "root";
- $password = "";
- $database = "examen";
- $message = "";
  try
  {
-      $connect = new PDO("mysql:host=$host; dbname=$database", $username, $password);
+      $connect = connection::connect($config['database']);
       $connect->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
       if(isset($_POST["login"]))
       {

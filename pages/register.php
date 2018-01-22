@@ -163,7 +163,7 @@
 							<label for="naam" class="cols-sm-2 control-label">Rijbewijsnummer</label>
 							<div class="cols-sm-10">
 								<div class="input-group">
-									<span class="input-group-addon"><i class="fa fa-building-o fa" aria-hidden="true"></i></span>
+									<span class="input-group-addon"><i class="fa fa-car fa" aria-hidden="true"></i></span>
 									<input type="text" class="form-control" name="rijbewijsnummer" id="rijbewijsnummer" required="required" placeholder="Voer je rijbewijsnummer in"/>
 								</div>
 							</div>
@@ -172,7 +172,7 @@
 							<label for="naam" class="cols-sm-2 control-label">Rijbewijs afgifte</label>
 							<div class="cols-sm-10">
 								<div class="input-group">
-									<span class="input-group-addon"><i class="fa fa-building-o fa" aria-hidden="true"></i></span>
+									<span class="input-group-addon"><i class="fa fa-car fa" aria-hidden="true"></i></span>
 									<input type="text" class="form-control" name="rijbewijs_afgifte" required="required" id="rijbewijsafgifte" placeholder="Voer de datum rijbewijs afgifte in"/>
 								</div>
 							</div>
@@ -182,7 +182,7 @@
 							<label for="naam" class="cols-sm-2 control-label">Rijbewijs geldig tot</label>
 							<div class="cols-sm-10">
 								<div class="input-group">
-									<span class="input-group-addon"><i class="fa fa-building-o fa" aria-hidden="true"></i></span>
+									<span class="input-group-addon"><i class="fa fa-car fa" aria-hidden="true"></i></span>
 									<input type="text" class="form-control" name="rijbewijs_geldigtot" id="rijbewijsgeldigtot" required="required" placeholder="Voer de datum rijbewijs geldig tot in"/>
 								</div>
 							</div>
@@ -192,7 +192,7 @@
 							<label for="naam" class="cols-sm-2 control-label">Rijbewijs type</label>
 							<div class="cols-sm-10">
 								<div class="input-group">
-									<span class="input-group-addon"><i class="fa fa-building-o fa" aria-hidden="true"></i></span>
+									<span class="input-group-addon"><i class="fa fa-car fa" aria-hidden="true"></i></span>
 									<input type="text" class="form-control" name="rijbewijs_type" id="rijbewijstype" required="required" placeholder="Voer je rijbewijs type(s) in"/>
 								</div>
 							</div>

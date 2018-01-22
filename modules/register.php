@@ -46,6 +46,7 @@ class RegisterModules
 		$email = $anw['email'];
 		$gebruikersnaam = $anw['gebruikersnaam'];
 		$wachtwoord = $anw['wachtwoord'];
+		$wachtwoord_controle = $anw['wachtwoord_controle'];
 		// $hash = password_hash($wachtwoord, PASSWORD_DEFAULT);
 		$status = 1;
 		$admin = 0;	
@@ -62,8 +63,12 @@ class RegisterModules
         $stmt->execute(array(':achternaam' => $achternaam, ':mobiel' => $mobiel, ':adres' => $adres, ':postcode' => $postcode, ':woonplaats' => $woonplaats, ':telefoonnummer' => $telefoonnummer, ':tussenvoegsel' => $tussenvoegsel, ':voorletters' => $voorletters));
         $lastid = $this->pdo->LastInsertId();
 
-		$stmt2 = $this->pdo->prepare("INSERT INTO accountgegevens (email, gebruikersnaam, status, admin, wachtwoord, klantgegevens_id) VALUES (:email, :gebruikersnaam, :status, :admin, :wachtwoord, :klantgegevens_id)");
-        $stmt2->execute(array(':email' => $email, ':gebruikersnaam' => $gebruikersnaam, ':status' => $status, ':admin' => $admin, ':wachtwoord' => $wachtwoord, ':klantgegevens_id' => $lastid));
+        if($wachtwoord == $wachtwoord_controle){
+			$stmt2 = $this->pdo->prepare("INSERT INTO accountgegevens (email, gebruikersnaam, status, admin, wachtwoord, klantgegevens_id) VALUES (:email, :gebruikersnaam, :status, :admin, :wachtwoord, :klantgegevens_id)");
+	        $stmt2->execute(array(':email' => $email, ':gebruikersnaam' => $gebruikersnaam, ':status' => $status, ':admin' => $admin, ':wachtwoord' => $wachtwoord, ':klantgegevens_id' => $lastid));
+		} else {
+            return false;
+        }
 
         $stmt3 = $this->pdo->prepare("INSERT INTO rijbewijs (klantgegevens_id, rijbewijsnummer, rijbewijs_afgifte, rijbewijs_geldigtot, rijbewijs_type) VALUES (:klantgegevens_id, :rijbewijsnummer, :rijbewijs_afgifte, :rijbewijs_geldigtot, :rijbewijs_type)");
         return $stmt3->execute(array(':klantgegevens_id' => $lastid, ':rijbewijsnummer' => $rijbewijsnummer, ':rijbewijs_afgifte' => $datum_afgifte, ':rijbewijs_geldigtot' => $datum_geldigtot, ':rijbewijs_type' => $rijbewijs_type));       

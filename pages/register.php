@@ -1,3 +1,54 @@
+<?php
+if(isset($_POST['submit']))
+{
+	$uname = strip_tags($_POST['txt_uname']);
+	$umail = strip_tags($_POST['txt_umail']);
+	$upass = strip_tags($_POST['txt_upass']);	
+	
+	if($uname=="")	{
+		$error[] = "provide username !";	
+	}
+	else if($umail=="")	{
+		$error[] = "provide email id !";	
+	}
+	else if(!filter_var($umail, FILTER_VALIDATE_EMAIL))	{
+	    $error[] = 'Please enter a valid email address !';
+	}
+	else if($upass=="")	{
+		$error[] = "provide password !";
+	}
+	else if(strlen($upass) < 6){
+		$error[] = "Password must be atleast 6 characters";	
+	}
+	else
+	{
+		try
+		{
+			$stmt = $user->runQuery("SELECT user_name, user_email FROM users WHERE user_name=:uname OR user_email=:umail");
+			$stmt->execute(array(':uname'=>$uname, ':umail'=>$umail));
+			$row=$stmt->fetch(PDO::FETCH_ASSOC);
+				
+			if($row['user_name']==$uname) {
+				$error[] = "sorry username already taken !";
+			}
+			else if($row['user_email']==$umail) {
+				$error[] = "sorry email id already taken !";
+			}
+			else
+			{
+				if($user->register($uname,$umail,$upass)){	
+					$user->redirect('sign-up.php?joined');
+				}
+			}
+		}
+		catch(PDOException $e)
+		{
+			echo $e->getMessage();
+		}
+	}	
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -104,13 +155,21 @@
 								</div>
 							</div>
 						</div>
-
 						<div class="form-group">
 							<label for="wachtwoord" class="cols-sm-2 control-label">Wachtwoord</label>
 							<div class="cols-sm-10">
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-									<input type="password" class="form-control" name="wachtwoord" id="password" required="required" placeholder="Enter your Password"/>
+									<input type="password" class="form-control" name="wachtwoord" id="password" required="required" placeholder="Voer je wachtwoord in"/>
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="wachtwoord" class="cols-sm-2 control-label">Wachtwoord herhalen</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+									<input type="password" class="form-control" name="wachtwoord_controle" id="password" required="required" placeholder="Wachtwoord herhalen"/>
 								</div>
 							</div>
 						</div>
@@ -198,17 +257,6 @@
 							</div>
 							<p><small>Voorbeeld invoer: AM, B, C</small></p>
 						</div>
-<!--
-						<div class="form-group">
-							<label for="confirm" class="cols-sm-2 control-label">Herhaal wachtwoord</label>
-							<div class="cols-sm-10">
-								<div class="input-group">
-									<span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-									<input type="password" class="form-control" name="wachtwoord" id="confirm"  placeholder="Confirm your Password"/>
-								</div>
-							</div> -->
-						<!-- </div> -->
-
 						<div class="form-group ">
 							<button type="submit" class="btn btn-primary btn-lg btn-block login-button" name="submit">Registreer</button>
 						</div>

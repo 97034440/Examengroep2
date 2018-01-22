@@ -15,6 +15,7 @@ class RegisterFunction {
 			'email' => $_POST['email'],
 			'gebruikersnaam' => $_POST['gebruikersnaam'],
 			'wachtwoord' => $_POST['wachtwoord'],
+			'wachtwoord_controle' => $_POST['wachtwoord_controle'],
 			'achternaam' => $_POST['achternaam'],
 			'mobiel' => $_POST['mobiel'],
 			'postcode' => $_POST['postcode'],

@@ -27,7 +27,10 @@ class RegisterFunction {
 			'rijbewijsnummer' => $_POST['rijbewijsnummer'],
 			'rijbewijs_afgifte' => $_POST['rijbewijs_afgifte'],
 			'rijbewijs_geldigtot' => $_POST['rijbewijs_geldigtot'],
-			'rijbewijs_type' => $_POST['rijbewijs_type']
+			'rijbewijs_B' => isset($_POST['rijbewijs_B']) ? '1' : '0',
+			'rijbewijs_BE' => isset($_POST['rijbewijs_BE']) ? '1' : '0',
+			'rijbewijs_C' => isset($_POST['rijbewijs_C']) ? '1' : '0',
+			'rijbewijs_CE' => isset($_POST['rijbewijs_CE']) ? '1' : '0'
 		];
 		$add = $this->registerModules->addAccountgegevens($anw);
 	}

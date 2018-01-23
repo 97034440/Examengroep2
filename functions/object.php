@@ -1,4 +1,7 @@
 <?php
+session_start();
+$id_value = $_SESSION['objectid'];
+
 //ik roep de query class aan en stuur de pdo verbinding gegevens mee.
 $query = new Querybuilder(connection::connect($config['database']));
 //roept de selectAll function aan van de querybuilder en stuurt de tabelnaam
@@ -70,6 +73,8 @@ $objects = $query->selectAll('object');
             <div>Benodigde: <?php echo $object->rijbewijs_benodigd?></div>
             <div>Prijs per dag: <?php echo $object->prijs_dag?></div>
             <div>Prijs per week: <?php echo $object->prijs_week?></div>
+            <?php $idsend = "$object->id"; ?>
+            <div><a href="http://localhost/Examengroep2/functions/bestel.php?product=<?php echo $idsend?>">bestellen</a></div>
           </div>
         </div>
       </div>

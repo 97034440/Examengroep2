@@ -10,10 +10,10 @@ body, html{
  	margin-top: 70px;
 }
 
-h1.title { 
+h1.title {
 	font-size: 50px;
-	font-family: 'Passion One', cursive; 
-	font-weight: 400; 
+	font-family: 'Passion One', cursive;
+	font-weight: 400;
 }
 
 hr{
@@ -64,3 +64,10 @@ input::-webkit-input-placeholder {
 	text-align: center;
 }
 /* einde css voor registratie pagina */
+/* css voor de bestel pagina */
+.opties {
+  width: 35%;
+  float: left;
+}
+
+/* einde css voor bestel pagina */

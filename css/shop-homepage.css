@@ -59,3 +59,7 @@ body {
     background-color: #fff;
     color: #33739E;
 }
+
+.floatleft {
+  float: left;
+}

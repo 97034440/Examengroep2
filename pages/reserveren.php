@@ -24,11 +24,11 @@ include('nav.php');
 
     <!-- Page Content -->
     <div class="container">
-
+      <div class="row">
           <?php
       include('../functions/object.php');
       ?>
-
+      </div>
     </div>
     <!-- /.container -->
 

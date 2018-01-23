@@ -83,9 +83,9 @@ $objectidhref = "#".$object->chassinummer;
         $regdate = $datetime->format('Y-m-d');
         ?>
 
-          <?php echo '<input type="date" name="first" min="'.$regdate.'">'?>
+          <?php echo '<input value="'.$regdate.'" type="date" name="first" min="'.$regdate.'">'?>
           <?php echo $_GET['subject']; ?>
-          <?php echo '<input type="date" name="second" min="'.$regdate.'">'?>
+          <?php echo '<input value="'.$regdate.'" type="date" name="second" min="'.$regdate.'">'?>
 
 
       </div>

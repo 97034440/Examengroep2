@@ -1,7 +1,4 @@
 <?php
-session_start();
-$id_value = $_SESSION['objectid'];
-
 //ik roep de query class aan en stuur de pdo verbinding gegevens mee.
 $query = new Querybuilder(connection::connect($config['database']));
 //roept de selectAll function aan van de querybuilder en stuurt de tabelnaam
@@ -16,15 +13,9 @@ $objects = $query->selectAll('object');
       $objectid = $object->chassinummer;
       $objectidhref = "#".$object->chassinummer;
     ?>
-    <div class="container objectload">
-      <div class="row">
-        <div class="col-lg-9">
+
+        <div class="col-lg-3 floatleft">
           <?php echo '<div id="'.$objectid.'" class="carousel slide my-4" data-ride="carousel">' ?>
-            <ol class="carousel-indicators">
-              <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-              <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-              <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-            </ol>
             <div class="carousel-inner" role="listbox">
               <?php
               $objectid = $object->id;
@@ -34,14 +25,14 @@ $objects = $query->selectAll('object');
                 $url = $image->imagelink;
                    if ($first == true) {
                      echo '<div class="carousel-item active">
-                       <img class="d-block img" height="500" width="100%" src="../images/'.$url.'" alt="First slide">
+                       <img class="d-block img" height="200" width="100%" src="../images/'.$url.'" alt="First slide">
                      </div>';
                      $first = false;
                    }
                    elseif ($first == false) {
                    echo
                    '<div class="carousel-item">
-                     <img class="d-block img" height="500" width="100%" src="../images/'.$url.'" alt="First slide">
+                     <img class="d-block img" height="200" width="100%" src="../images/'.$url.'" alt="First slide">
                    </div>'; }
                    ?>
                   <?php endforeach; ?>
@@ -55,9 +46,7 @@ $objects = $query->selectAll('object');
                   <span class="sr-only">Next</span>
                 </a>
               </div>
-            </div>
 
-          <div class="col-lg-3">
             <div><h1><?php echo $object->object_type;?></h1></div>
             <div>objectid: <?php echo $object->id;?></div>
             <div>Kenteken: <?php echo $object->kenteken;?></div>
@@ -74,18 +63,10 @@ $objects = $query->selectAll('object');
             <div>Prijs per dag: <?php echo $object->prijs_dag?></div>
             <div>Prijs per week: <?php echo $object->prijs_week?></div>
             <?php $idsend = "$object->id"; ?>
-            <div><a href="http://localhost/Examengroep2/pages/bestel.php?product=<?php echo $idsend?>">bestellen</a></div>
+            <div><a href="http://localhost/Examengroep2/pages/bestel.php?product=<?php echo $idsend?>">Reserveren</a></div>
           </div>
-        </div>
-      </div>
-    <?php endforeach; ?>
-    <a class="buttons" href="#" id="loadMore">Laad meer</a>
 
-    <p class="buttons" class="totop">
-      <a href="#top">terug naar boven</a>
-    </p>
-    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-    <script  src="../js/loadmore.js">
-</script>
+    <?php endforeach; ?>
+
 
 </html>

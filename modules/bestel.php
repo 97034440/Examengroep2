@@ -14,7 +14,15 @@ protected $pdo;
   private $datumterug;
 
   //ontvangt de tabelnaam en de classnaam waar je deze aan koppelt
-  public function PlaatsBestelling (){
+  public function PlaatsBestelling ($receive){
+
+    $klant = $receive['klant'];
+    $object = $receive['object'];
+    $orderdatum = $receive['orderdatum'];
+    $datumuit = $receive['datumuit'];
+    $datumterug = $receive['datumterug'];
+
+
     //selecteerd alles uit de tabelnaam die je hebt meegegeven.
 
     $statement = $this->pdo->prepare("INSERT INTO `examen`.`ordernummer`

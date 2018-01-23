@@ -41,6 +41,16 @@
                      $message = '<label>Verkeerde gegevens</label>';
                 }
            }
+          //  if($count==1){
+          //     session_start();
+          //     $_SESSION['logged']=true;
+          //     $_SESSION ['username']=$config;
+          //     header("refresh:1;url=../index.php");
+          //     }
+          //     else{
+          //     $_SESSION['logged']=false;
+          //     header("refresh:2;url=login.php");}
+
       }
  }
  catch(PDOException $error)

@@ -74,7 +74,7 @@ $objects = $query->selectAll('object');
             <div>Prijs per dag: <?php echo $object->prijs_dag?></div>
             <div>Prijs per week: <?php echo $object->prijs_week?></div>
             <?php $idsend = "$object->id"; ?>
-            <div><a href="http://localhost/Examengroep2/functions/bestel.php?product=<?php echo $idsend?>">bestellen</a></div>
+            <div><a href="http://localhost/Examengroep2/pages/bestel.php?product=<?php echo $idsend?>">bestellen</a></div>
           </div>
         </div>
       </div>

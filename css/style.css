@@ -64,3 +64,13 @@ input::-webkit-input-placeholder {
 	text-align: center;
 }
 /* einde css voor registratie pagina */
+<<<<<<< HEAD
+=======
+/* css voor de bestel pagina */
+.opties {
+  width: 35%;
+  float: left;
+}
+
+/* einde css voor bestel pagina */
+>>>>>>> 1a94679c803308ba672fbbdd7e68ef92c53e1268

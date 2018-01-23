@@ -10,3 +10,5 @@ $statement = $pdo->prepare("select * from optie");
 $result = $statement->execute();
 $obj = $statement->fetch();
 var_dump($obj);
+
+?>

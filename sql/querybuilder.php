@@ -30,5 +30,4 @@ protected $pdo;
     return $statement->fetchAll(PDO::FETCH_CLASS);
     // alles uit de database lezen.
   }
-
 }

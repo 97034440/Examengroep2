@@ -12,10 +12,11 @@ if(empty($objects))
   header('Location: /Examengroep2');
   exit;
 }
+
 foreach ($objects as $object):
-  $first = true;
-  $objectid = $object->chassinummer;
-  $objectidhref = "#".$object->chassinummer;
+$first = true;
+$objectid = $object->chassinummer;
+$objectidhref = "#".$object->chassinummer;
 ?>
 <div class="container objectload">
   <div class="row">
@@ -74,15 +75,22 @@ foreach ($objects as $object):
         <div>Benodigde: <?php echo $object->rijbewijs_benodigd?></div>
         <div>Prijs per dag: <?php echo $object->prijs_dag?></div>
         <div>Prijs per week: <?php echo $object->prijs_week?></div>
-      </div>
+        <?php
+        date_default_timezone_set('Europe/Amsterdam');
+        $todaydate = date('Y-m-d');
+        $datetime = new DateTime($todaydate);
+        $datetime->modify('+60 day');
+        $regdate = $datetime->format('Y-m-d');
+        ?>
 
-      <div id="testDIV">
-          <div class="container">
-              <div class="hero-unit">
-                  <input  type="text" placeholder="click to show datepicker"  id="pickyDate"/>
-              </div>
-          </div>
+          <?php echo '<input type="date" name="first" min="'.$regdate.'">'?>
+          <?php echo $_GET['subject']; ?>
+          <?php echo '<input type="date" name="second" min="'.$regdate.'">'?>
+
+
       </div>
+      <?php endforeach; ?>
+
 
       <?php
       foreach ($opties as $optie):
@@ -104,6 +112,6 @@ foreach ($objects as $object):
         <?php
       endforeach; ?>
     </div>
+
   </div>
-<?php endforeach; ?>
 </html>

@@ -4,7 +4,7 @@
  if(isset($_SESSION["username"]))
  {
 	 		echo '<nav class="navbar navbar-expand-lg navbar-light bg-info"><ul>
-      <li>U bent ingelogd welkom '.$_SESSION["username"].'!<a href="http://localhost/Examengroep2/pages/logout.php">  Uitloggen</a>
+      <li>Welkom '.$_SESSION["username"].'! <a href="http://localhost/Examengroep2/pages/logout.php" class="text-white">Uitloggen</a>
 			contactpersoon: mobiel 06-12345678  email beheer@dedissel.com</li>
 			</ul></nav>'; // geeft weer als je bent ingelogd
  }

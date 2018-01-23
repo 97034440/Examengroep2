@@ -30,7 +30,8 @@
         <p>
         Welkom op de website De Dissel.<br>
         Om een een caravan of camper te kunnen reserveren heeft u een account nodig.<br>
-        Heeft u nog geen account? <a href="http://localhost/Examengroep2/pages/register.php">Registreer nu. </a><br><br><br><br>
+        Heeft u nog geen account? <a href="http://localhost/Examengroep2/pages/register.php">Registreer nu. </a><br>
+        Voor vragen neem contact op met ons.<br><br><br>
         </p>
         </div>
         </form>

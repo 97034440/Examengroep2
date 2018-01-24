@@ -1,8 +1,10 @@
 <?php
-require_once '../init.php';
+include('../modules/bestel.php');
 
+require_once '../init.php';
 $object_id = $_GET['product'];
 $query = new Querybuilder(connection::connect($config['database']));
+$reserveer = new Reserveer(connection::connect($config['database']));
 //roept de selectAll function aan van de querybuilder en stuurt de tabelnaam
 //en de classnaam waar je de object aan wilt koppelen.
 $objects = $query->selectImage('object', 'id', $object_id);
@@ -12,16 +14,20 @@ if(empty($objects))
   header('Location: /Examengroep2');
   exit;
 }
+?>
 
+
+<?php
 foreach ($objects as $object):
 $first = true;
-$objectid = $object->chassinummer;
+$objectnumber = $object->chassinummer;
 $objectidhref = "#".$object->chassinummer;
+
 ?>
 <div class="container objectload">
   <div class="row">
     <div class="col-lg-9">
-      <?php echo '<div id="'.$objectid.'" class="carousel slide my-4" data-ride="carousel">' ?>
+      <?php echo '<div id="'.$objectnumber.'" class="carousel slide my-4" data-ride="carousel">' ?>
         <ol class="carousel-indicators">
           <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
           <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
@@ -47,7 +53,7 @@ $objectidhref = "#".$object->chassinummer;
                </div>'; }
                ?>
               <?php endforeach; ?>
-            </div>
+        </div>
             <?php echo '<a class="carousel-control-prev" href="'.$objectidhref.'" role="button" data-slide="prev">' ?>
               <span class="carousel-control-prev-icon" aria-hidden="true"></span>
               <span class="sr-only">Previous</span>
@@ -80,38 +86,60 @@ $objectidhref = "#".$object->chassinummer;
         $todaydate = date('Y-m-d');
         $datetime = new DateTime($todaydate);
         $datetime->modify('+60 day');
-        $regdate = $datetime->format('Y-m-d');
+        $regdate1 = $datetime->format('Y-m-d');
+        $regdate2 = $datetime->format('Y-m-d');
         ?>
-
-          <?php echo '<input value="'.$regdate.'" type="date" name="first" min="'.$regdate.'">'?>
-          <?php echo $_GET['subject']; ?>
-          <?php echo '<input value="'.$regdate.'" type="date" name="second" min="'.$regdate.'">'?>
-
-
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <form class="form-horizontal" method="post" action="">
+          <div class="form-group">
+            <?php echo '<input value="'.$regdate1.'" type="date" name="first" id="first" min="'.$regdate1.'">'?>
+          </div>
+          <div class="form-group">
+            <?php echo '<input value="'.$regdate2.'" type="date" name="second" id="second" min="'.$regdate2.'">'?>
+          </div>
+            <div class="form-group ">
+							<button type="submit" class="btn btn-primary btn-lg btn-block login-button" name="submit">Reserveer</button>
+						</div>
+          </form>
       </div>
       <?php endforeach; ?>
 
 
-      <?php
+      <!-- <?php
       foreach ($opties as $optie):
         ?>
         <div class="col-lg-5"><?php echo $optie->omschrijving?>
-          <select>
-            <option value="0">0</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">2</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-            <option value="6">6</option>
-            <option value="7">7</option>
-            <option value="8">8</option>
-            <option value="9">9</option>
-        </select>
+            <?php echo '<input type="checkbox" name="'.$optie->omschrijving.'" value="'.$optie->omschrijving.'">' ?>
         </div>
         <?php
-      endforeach; ?>
+      endforeach; ?> -->
+      <script>
+      var date1 = new Date("7/13/2010");
+      var date2 = new Date("12/15/2010");
+      var timeDiff = Math.abs(date2.getTime() - date1.getTime());
+      var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
+      document.write(diffDays);
+
+      <script>
+      var date1 = document.getElementById('first').value;
+      var date2 = document.getElementById('second').value;
+      document.write(date1);
+      document.write(date2);
+      var timeDiff = Math.abs(date2.getTime() - date1.getTime());
+      var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
+      document.write(diffDays);
+      </script>
+      </script>
     </div>
 
   </div>
 </html>
+<?php
+
+if ( isset($_POST['submit']) ){
+  $reserverdate = $_POST['first'];
+  $datumterug = $_POST['second'];
+  $username = $_SESSION["username"];
+  $resering = $reserveer->Save($username, $object->id, $todaydate, $reserverdate, $datumterug);
+}
+?>

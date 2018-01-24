@@ -1,5 +1,5 @@
 <?php
-class Bestel {
+class Reserveer {
 
 protected $pdo;
 
@@ -14,23 +14,21 @@ protected $pdo;
   private $datumterug;
 
   //ontvangt de tabelnaam en de classnaam waar je deze aan koppelt
-  public function PlaatsBestelling ($receive){
-
-    $klant = $receive['klant'];
-    $object = $receive['object'];
-    $orderdatum = $receive['orderdatum'];
-    $datumuit = $receive['datumuit'];
-    $datumterug = $receive['datumterug'];
-
-
+  public function Save ($value1,$value2,$value3,$value4,$value5){
+    $klantid = htmlspecialchars($value1);
+    $object = htmlspecialchars($value2);
+    $newDate = date("Y-m-d", strtotime($value3));
+    $currentDate = htmlspecialchars($newDate);
+    $datumuit = date("Y-m-d", strtotime($value4));
+    $datumuitgave = htmlspecialchars($datumuit);
+    $datumterug = date("Y-m-d", strtotime($value5));
+    $datumteruggave = htmlspecialchars($datumterug);
     //selecteerd alles uit de tabelnaam die je hebt meegegeven.
-
     $statement = $this->pdo->prepare("INSERT INTO `examen`.`ordernummer`
       (`ordernummer`, `klant_id`, `test_id`, `object_id`, `orderdatum`, `datum_uit`, `datum_terug`)
-      VALUES (NULL, 'testaccount', '2', '3', '2018-01-16', '2018-01-26', '2018-01-31');");
+      VALUES (NULL, '{$klantid}', '2', {$object}, '{$currentDate}', '{$datumuitgave}', '{$datumteruggave}');");
     // statement uitvoeren.
-    $statement->execute(array("\xbf\x27 OR 1=1 /*"));
-    return $statement->fetchAll(PDO::FETCH_CLASS);
+    $statement->execute();
     // alles uit de database lezen.
   }
 }

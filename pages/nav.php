@@ -1,6 +1,9 @@
 <?php
  //login_success.php
- session_start();
+ if(!isset($_SESSION))
+     {
+         session_start();
+     } 
  if(isset($_SESSION["username"]))
  {
 	 		echo '<nav class="navbar navbar-expand-lg navbar-light bg-info"><ul>

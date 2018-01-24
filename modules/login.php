@@ -10,18 +10,14 @@
 // var_dump($obj);
 
  session_start();
- try
- {
+ try {
       $connect = connection::connect($config['database']);
       $connect->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-      if(isset($_POST["login"]))
-      {
-           if(empty($_POST["username"]) || empty($_POST["password"]))
-           {
+
+      if(isset($_POST["login"]))   {
+           if(empty($_POST["username"]) || empty($_POST["password"]))  {
                 $message = '<label>Alle velden zijn vereist</label>';
-           }
-           else
-           {
+           } else {
                 $query = "SELECT * FROM accountgegevens WHERE gebruikersnaam = :username AND wachtwoord = :password";
                 $statement = $connect->prepare($query);
                 $statement->execute(
@@ -30,14 +26,13 @@
                           'password'     =>     $_POST["password"]
                      )
                 );
+
                 $count = $statement->rowCount();
-                if($count > 0)
-                {
+                if($count > 0) {
                      $_SESSION["username"] = $_POST["username"];
                      header("location:../index.php");
-                }
-                else
-                {
+
+                } else {
                      $message = '<label>Verkeerde gegevens</label>';
                 }
            }
@@ -52,6 +47,8 @@
           //     header("refresh:2;url=login.php");}
 
       }
+
+
  }
  catch(PDOException $error)
  {

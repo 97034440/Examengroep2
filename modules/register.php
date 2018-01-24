@@ -16,7 +16,6 @@ class RegisterModules
 			$this->pdo->beginTransaction();
 			//eerste insert variablen 
 			$achternaam = $anw['achternaam'];
-			$mobiel = $anw['mobiel'];
 			$postcode = $anw['postcode'];
 			$adres = $anw['adres'];
 			$woonplaats = $anw['woonplaats'];
@@ -39,13 +38,13 @@ class RegisterModules
 			$datum_afgifte = date('Y-m-d',strtotime($rijbewijs_afgifte));
 			$rijbewijs_geldigtot = $anw['rijbewijs_geldigtot'];
 			$datum_geldigtot = date('Y-m-d',strtotime($rijbewijs_geldigtot));
-			$rijbewijs_B = isset($anw['rijbewijs_B']) ? '1' : '0';
-			$rijbewijs_BE = isset($anw['rijbewijs_BE']) ? '2' : '0';
-			$rijbewijs_C = isset($anw['rijbewijs_C']) ? '3' : '0';
-			$rijbewijs_CE = isset($anw['rijbewijs_CE']) ? '4' : '0';
+			$rijbewijs_B = isset($_POST['rijbewijs_B']) ? '1' : '0';
+			$rijbewijs_BE = isset($_POST['rijbewijs_BE']) ? '2' : '0';
+			$rijbewijs_C = isset($_POST['rijbewijs_C']) ? '3' : '0';
+			$rijbewijs_CE = isset($_POST['rijbewijs_CE']) ? '4' : '0';
 
-			$stmt = $this->pdo->prepare("INSERT INTO klantgegevens (achternaam, mobiel, adres, postcode, woonplaats, telefoonnummer, tussenvoegsel, voorletters) VALUES (:achternaam, :mobiel, :adres, :postcode, :woonplaats, :telefoonnummer, :tussenvoegsel, :voorletters)");
-	        $stmt->execute(array(':achternaam' => $achternaam, ':mobiel' => $mobiel, ':adres' => $adres, ':postcode' => $postcode, ':woonplaats' => $woonplaats, ':telefoonnummer' => $telefoonnummer, ':tussenvoegsel' => $tussenvoegsel, ':voorletters' => $voorletters));
+			$stmt = $this->pdo->prepare("INSERT INTO klantgegevens (achternaam, adres, postcode, woonplaats, telefoonnummer, tussenvoegsel, voorletters) VALUES (:achternaam, :adres, :postcode, :woonplaats, :telefoonnummer, :tussenvoegsel, :voorletters)");
+	        $stmt->execute(array(':achternaam' => $achternaam, ':adres' => $adres, ':postcode' => $postcode, ':woonplaats' => $woonplaats, ':telefoonnummer' => $telefoonnummer, ':tussenvoegsel' => $tussenvoegsel, ':voorletters' => $voorletters));
 	        $lastid = $this->pdo->LastInsertId();
 
 			$stmt2 = $this->pdo->prepare("INSERT INTO accountgegevens (email, gebruikersnaam, status, admin, wachtwoord, klantgegevens_id) VALUES (:email, :gebruikersnaam, :status, :admin, :wachtwoord, :klantgegevens_id)");
@@ -55,20 +54,20 @@ class RegisterModules
 	        $stmt3->execute(array(':klantgegevens_id' => $lastid, ':rijbewijsnummer' => $rijbewijsnummer, ':rijbewijs_afgifte' => $datum_afgifte, ':rijbewijs_geldigtot' => $datum_geldigtot));     
 	    	
 	        if($rijbewijs_B = $rijbewijs_B){
-	           $stmt4 = $this->pdo->prepare("INSERT INTO rijbewijsregel (rijbewijstype_id, rijbewijsnummer) VALUES ('$rijbewijs_B', '$rijbewijsnummer')");
-	           $stmt4->execute(); 
+	           $stmt4 = $this->pdo->prepare("INSERT INTO rijbewijsregel (rijbewijstype_id, rijbewijsnummer) VALUES (:rijbewijs_B, :rijbewijsnummer)");
+	           $stmt4->execute(array(':rijbewijs_B' => $rijbewijs_B, ':rijbewijsnummer' => $rijbewijsnummer)); 
 	        } 
 	        if ($rijbewijs_BE = $rijbewijs_BE){
-	           $stmt5 = $this->pdo->prepare("INSERT INTO rijbewijsregel (rijbewijstype_id, rijbewijsnummer) VALUES ('$rijbewijs_BE', '$rijbewijsnummer')");
-	           $stmt5->execute(); 
+	           $stmt5 = $this->pdo->prepare("INSERT INTO rijbewijsregel (rijbewijstype_id, rijbewijsnummer) VALUES (:rijbewijs_BE, :rijbewijsnummer)");
+	           $stmt5->execute(array(':rijbewijs_BE' => $rijbewijs_BE, ':rijbewijsnummer' => $rijbewijsnummer)); 
 	        }
 	        if ($rijbewijs_C = $rijbewijs_C){
-	           $stmt6 = $this->pdo->prepare("INSERT INTO rijbewijsregel (rijbewijstype_id, rijbewijsnummer) VALUES ('$rijbewijs_C', '$rijbewijsnummer')");
-	           $stmt6->execute(); 
+	           $stmt6 = $this->pdo->prepare("INSERT INTO rijbewijsregel (rijbewijstype_id, rijbewijsnummer) VALUES (:rijbewijs_C, :rijbewijsnummer)");
+	           $stmt6->execute(array(':rijbewijs_C' => $rijbewijs_C, ':rijbewijsnummer' => $rijbewijsnummer)); 
 	        }
 	        if ($rijbewijs_CE = $rijbewijs_CE){
-	           $stmt7 = $this->pdo->prepare("INSERT INTO rijbewijsregel (rijbewijstype_id, rijbewijsnummer) VALUES ('$rijbewijs_CE', '$rijbewijsnummer')");
-	           $stmt7->execute(); 
+	           $stmt7 = $this->pdo->prepare("INSERT INTO rijbewijsregel (rijbewijstype_id, rijbewijsnummer) VALUES (:rijbewijs_CE, :rijbewijsnummer)");
+	           $stmt7->execute(array(':rijbewijs_CE' => $rijbewijs_CE, ':rijbewijsnummer' => $rijbewijsnummer)); 
 	        }
 	        $this->pdo->commit();
 	        return true;

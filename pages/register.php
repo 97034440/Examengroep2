@@ -205,21 +205,21 @@ include('nav.php');
 						<label for="naam" class="cols-sm-2 control-label">Rijbewijs type(s)</label>
 						<div class="form-group">
 							<label>
-								<input type="checkbox" class="checkbox" name="rijbewijs_B" value="1"> 
+								<input type="checkbox" class="checkbox" name="rijbewijs_B" value="1" value="<?php if(isset($error)){echo $rijbewijs_B;}?>"> 
 								<span class="label-text">B</span>
 							</label>
 							<label class="checkbox2">
-								<input type="checkbox" class="checkbox" name="rijbewijs_BE" value="2"> 
+								<input type="checkbox" class="checkbox" name="rijbewijs_BE" value="2" value="<?php if(isset($error)){echo $rijbewijs_BE;}?>"> 
 								<span class="label-text">BE</span>
 							</label>
 						</div>
 						<div class="form-group">
 							<label>
-								<input type="checkbox" class="checkbox" name="rijbewijs_C" value="3"> 
+								<input type="checkbox" class="checkbox" name="rijbewijs_C" value="3" value="<?php if(isset($error)){echo $rijbewijs_C;}?>"> 
 								<span class="label-text">C</span>
 							</label>
 							<label class="checkbox4">
-								<input type="checkbox" class="checkbox" name="rijbewijs_CE" value="4"> 
+								<input type="checkbox" class="checkbox" name="rijbewijs_CE" value="4" value="<?php if(isset($error)){echo $rijbewijs_CE;}?>"> 
 								<span class="label-text">CE</span>
 							</label>
 						</div>

@@ -34,10 +34,10 @@ class RegisterFunction {
 			'rijbewijsnummer' => $_POST['rijbewijsnummer'],
 			'rijbewijs_afgifte' => $_POST['rijbewijs_afgifte'],
 			'rijbewijs_geldigtot' => $_POST['rijbewijs_geldigtot'],
-			'rijbewijs_B' => isset($_POST['rijbewijs_B']) ? '1' : '0',
-			'rijbewijs_BE' => isset($_POST['rijbewijs_BE']) ? '2' : '0',
-			'rijbewijs_C' => isset($_POST['rijbewijs_C']) ? '3' : '0',
-			'rijbewijs_CE' => isset($_POST['rijbewijs_CE']) ? '4' : '0'
+			// 'rijbewijs_B' => isset($_POST['rijbewijs_B']) ? '1' : '0',
+			// 'rijbewijs_BE' => isset($_POST['rijbewijs_BE']) ? '2' : '0',
+			// 'rijbewijs_C' => isset($_POST['rijbewijs_C']) ? '3' : '0',
+			// 'rijbewijs_CE' => isset($_POST['rijbewijs_CE']) ? '4' : '0'
 		];
 
 		$error = $this->checkInput();
@@ -69,7 +69,10 @@ class RegisterFunction {
 		$rijbewijsnummer = strip_tags($_POST['rijbewijsnummer']);	
 		$rijbewijs_afgifte = strip_tags($_POST['rijbewijs_afgifte']);	
 		$rijbewijs_geldigtot = strip_tags($_POST['rijbewijs_geldigtot']);	
-		//$rijbewijs_type = strip_tags($_POST['rijbewijs_type']);	
+		$rijbewijs_B = isset($_POST['rijbewijs_B']);
+		$rijbewijs_BE = isset($_POST['rijbewijs_BE']);	
+		$rijbewijs_C = isset($_POST['rijbewijs_C']);	
+		$rijbewijs_CE = isset($_POST['rijbewijs_CE']);	
 		
 		$error = array();
 
@@ -136,18 +139,21 @@ class RegisterFunction {
 		if($rijbewijs_geldigtot == "") {
 			array_push($error, "Voer een rijbewijs geldig tot in!");
 		}
+		// if(!isset($_POST['rijbewijs_B']) OR !$_POST['rijbewijs_BE'] OR !$_POST['rijbewijs_C'] OR !$_POST['rijbewijs_CE']) {
+		// 	array_push($error, "Selecteer minimaal 1 rijbewijs!");
+		// }
 		else {
-				$stmt = $this->pdo->prepare("SELECT gebruikersnaam, email FROM accountgegevens WHERE gebruikersnaam = :gebruikersnaam OR email = :email");
-				$stmt->execute(array(':gebruikersnaam' => $gebruikersnaam, ':email' => $email));
-				$row=$stmt->fetch(PDO::FETCH_ASSOC);
-					
-				if($row['gebruikersnaam'] == $gebruikersnaam) {
-					$error[] = "Deze gebruikersnaam bestaat al!";
-				}
-				else if($row['email'] == $email) {
-					$error[] = "Deze email bestaat al!";
-				}
+			$stmt = $this->pdo->prepare("SELECT gebruikersnaam, email FROM accountgegevens WHERE gebruikersnaam = :gebruikersnaam OR email = :email");
+			$stmt->execute(array(':gebruikersnaam' => $gebruikersnaam, ':email' => $email));
+			$row=$stmt->fetch(PDO::FETCH_ASSOC);
+				
+			if($row['gebruikersnaam'] == $gebruikersnaam) {
+				$error[] = "Deze gebruikersnaam bestaat al!";
 			}
+			else if($row['email'] == $email) {
+				$error[] = "Deze email bestaat al!";
+			}
+		}	
 
 		return $error;
 	}

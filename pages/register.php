@@ -30,8 +30,8 @@
 	</head>
 	<body>
     <?php
-include('nav.php');
-?>
+		include('nav.php');
+	?>
 
 		<div class="container">
 			<div class="row main">

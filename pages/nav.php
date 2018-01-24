@@ -33,10 +33,10 @@
                 <a class="nav-link" href="http://localhost/Examengroep2/pages/reserveren.php">Reserveren</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="http://localhost/Examengroep2/pages/logout.php"">Logout</a>
+                <a class="nav-link" href="http://localhost/Examengroep2/pages/mijnaccount.php"">Mijn account</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="http://localhost/Examengroep2/pages/mijnaccount.php"">Mijn account</a>
+                <a class="nav-link" href="http://localhost/Examengroep2/pages/logout.php"">Logout</a>
               </li>';
             }
             else

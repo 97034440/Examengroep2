@@ -16,7 +16,6 @@ class RegisterModules
 			$this->pdo->beginTransaction();
 			//eerste insert variablen 
 			$achternaam = $anw['achternaam'];
-			$mobiel = $anw['mobiel'];
 			$postcode = $anw['postcode'];
 			$adres = $anw['adres'];
 			$woonplaats = $anw['woonplaats'];
@@ -44,8 +43,8 @@ class RegisterModules
 			$rijbewijs_C = isset($_POST['rijbewijs_C']) ? '3' : '0';
 			$rijbewijs_CE = isset($_POST['rijbewijs_CE']) ? '4' : '0';
 
-			$stmt = $this->pdo->prepare("INSERT INTO klantgegevens (achternaam, mobiel, adres, postcode, woonplaats, telefoonnummer, tussenvoegsel, voorletters) VALUES (:achternaam, :mobiel, :adres, :postcode, :woonplaats, :telefoonnummer, :tussenvoegsel, :voorletters)");
-	        $stmt->execute(array(':achternaam' => $achternaam, ':mobiel' => $mobiel, ':adres' => $adres, ':postcode' => $postcode, ':woonplaats' => $woonplaats, ':telefoonnummer' => $telefoonnummer, ':tussenvoegsel' => $tussenvoegsel, ':voorletters' => $voorletters));
+			$stmt = $this->pdo->prepare("INSERT INTO klantgegevens (achternaam, adres, postcode, woonplaats, telefoonnummer, tussenvoegsel, voorletters) VALUES (:achternaam, :adres, :postcode, :woonplaats, :telefoonnummer, :tussenvoegsel, :voorletters)");
+	        $stmt->execute(array(':achternaam' => $achternaam, ':adres' => $adres, ':postcode' => $postcode, ':woonplaats' => $woonplaats, ':telefoonnummer' => $telefoonnummer, ':tussenvoegsel' => $tussenvoegsel, ':voorletters' => $voorletters));
 	        $lastid = $this->pdo->LastInsertId();
 
 			$stmt2 = $this->pdo->prepare("INSERT INTO accountgegevens (email, gebruikersnaam, status, admin, wachtwoord, klantgegevens_id) VALUES (:email, :gebruikersnaam, :status, :admin, :wachtwoord, :klantgegevens_id)");

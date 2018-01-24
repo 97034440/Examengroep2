@@ -1,117 +1,18 @@
 <?php
-
-if(isset($_POST['submit']))
-{
-	$voorletters = strip_tags($_POST['voorletters']);	
-	$tussenvoegsel = strip_tags($_POST['tussenvoegsel']);	
-	$achternaam = strip_tags($_POST['achternaam']);	
-	$email = strip_tags($_POST['email']);
-	$gebruikersnaam = strip_tags($_POST['gebruikersnaam']);
-	$wachtwoord = strip_tags($_POST['wachtwoord']);	
-	$wachtwoord_controle = strip_tags($_POST['wachtwoord_controle']);	
-	$mobiel = strip_tags($_POST['mobiel']);	
-	$telefoonnummer = strip_tags($_POST['telefoonnummer']);	
-	$adres = strip_tags($_POST['adres']);	
-	$postcode = strip_tags($_POST['postcode']);	
-	$woonplaats = strip_tags($_POST['woonplaats']);	
-	$rijbewijsnummer = strip_tags($_POST['rijbewijsnummer']);	
-	$rijbewijs_afgifte = strip_tags($_POST['rijbewijs_afgifte']);	
-	$rijbewijs_geldigtot = strip_tags($_POST['rijbewijs_geldigtot']);	
-	$rijbewijs_type = strip_tags($_POST['rijbewijs_type']);	
-	
-	if($voorletters == "") {
-		$error[] = "Voer je naam in in!";	
+	include_once('../functions/register.php');
+  	$registerfunction = new RegisterFunction();
+	if(isset($_POST['submit'])) {
+		$return = $registerfunction->saveregisterAction();
+		extract($return);
+		if(isset($anw)){
+			extract($anw);
+		}
 	}
-	else if($achternaam == "") {
-		$error[] = "Voer een achternaam in!";	
-	}
-	else if($email == "") {
-		$error[] = "Voer een email in!";	
-	}
-	else if(!filter_var($email, FILTER_VALIDATE_EMAIL))	{
-	    $error[] = 'Voer en geldig email adres in!';
-	}
-	else if($gebruikersnaam == "") {
-		$error[] = "Voer een gebruikersnaam in!";	
-	}
-	else if($wachtwoord == "") {
-		$error[] = "Voer een wachtwoord in!";
-	}
-	else if(strlen($wachtwoord) < 6) {
-		$error[] = "Wachtwoord moet minimaal 6 tekens hebben!";	
-	}
-	else if($wachtwoord != $wachtwoord_controle) {
-		$error[] = "Wachtwoorden komen niet overeen!";
-	}
-	else if($mobiel == "") {
-		$error[] = "Voer een mobiel nummer in!";
-	}
-	else if(strlen($mobiel) < 10) {
-		$error[] = "Het mobiel nummer moet minimaal 10 cijfers hebben!";	
-	}
-	else if(strlen($mobiel) > 10) {
-		$error[] = "Het mobiel nummer mag maximaal 10 cijfers hebben!";	
-	}
-	else if($adres == "") {
-		$error[] = "Voer een adres in!";
-	}
-	else if($postcode == "") {
-		$error[] = "Voer een postcode in!";
-	}
-	else if(preg_match('/^[1-9][0-9]{4} ? [a-zA-Z]{2}$/', $postcode)) {
-		$error[] = "Voer een geldige postcode in met 4 cijfers en 2 letters!";	
-	}
-	else if($woonplaats == "") {
-		$error[] = "Voer een woonplaats in!";
-	}
-	else if($rijbewijsnummer == "") {
-		$error[] = "Voer een rijbewijsnummer in!";
-	}
-	else if(strlen($rijbewijsnummer) != 10) {
-		$error[] = "Het rijbewijsnummer moet 10 cijfers hebben!";	
-	}
-	else if($rijbewijs_afgifte == "") {
-		$error[] = "Voer een rijbewijs afgifte in!";
-	}
-	else
-	{
-		// try
-		// {
-		// 	include_once('../modules/register.php');
-  // 		 	$test = new RegisterModules();
-
-		// 	$stmt = $this->pdo->prepare("SELECT gebruikersnaam, email FROM accountgegevens WHERE gebruikersnaam = :gebruikersnaam OR email = :email");
-		// 	$stmt->execute(array(':gebruikersnaam' => $gebruikersnaam, ':email' => $email));
-		// 	$row=$stmt->fetch(PDO::FETCH_ASSOC);
-				
-		// 	if($row['gebruikersnaam'] == $gebruikersnaam) {
-		// 		$error[] = "Deze gebruikersnaam bestaat al!";
-		// 	}
-		// 	else if($row['email'] == $email) {
-		// 		$error[] = "Deze email bestaat al!";
-		// 	}
-		// 	else
-		// 	{
-		// 		if($gebruiker->register($gebruikersnaam,$email,$wachtwoord)){	
-		// 			$gebruiker->redirect('login.php');
-		// 		}
-		// 	}
-		// }
-		// catch(PDOException $error)
-		// {
-		// 	echo $error->getMessage();
-		// }
-	}	
-}
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
     <head>
-    	<?php
-    		include_once('../functions/register.php');
-  		 	$registerfunction = new RegisterFunction();
-  		 ?>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" type="text/css" href="../vendor/bootstrap/css/bootstrap.css">
 
@@ -149,14 +50,18 @@ include('nav.php');
 						 	{
 								 ?>
 			                     <div class="alert alert-danger">
-			                        <i class="glyphicon glyphicon-warning-sign"></i> &nbsp; <?php echo $error; ?>
+			                        <i class="glyphicon glyphicon-warning-sign"></i> &nbsp; <?php echo $error ?>
 			                     </div>
 			                     <?php
 							}
 						}
-						else
+						if(isset($message))
 						{
-							
+							 ?>
+		                     <div class="alert alert-success">
+		                        <i class="glyphicon glyphicon-ok"></i> &nbsp; <?php echo $message ?>
+		                     </div>
+		                    <?php
 						}
 						?>
 						<div class="form-group">
@@ -164,7 +69,7 @@ include('nav.php');
 							<div class="cols-sm-10">
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-									<input type="text" class="form-control" name="voorletters" id="voorletters" placeholder="Voer je naam in" value="<?php if(isset($error)){echo $voorletters;}?>" />
+									<input type="text" class="form-control" name="voorletters" id="voorletters" placeholder="Voer je naam in" value="<?php if(isset($error)){echo ucfirst($voorletters);}?>" />
 								</div>
 							</div>
 						</div>
@@ -182,7 +87,7 @@ include('nav.php');
 							<div class="cols-sm-10">
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-									<input type="text" class="form-control" name="achternaam" id="achternaam" placeholder="Voer je achternaam in" value="<?php if(isset($error)){echo $achternaam;}?>" />
+									<input type="text" class="form-control" name="achternaam" id="achternaam" placeholder="Voer je achternaam in" value="<?php if(isset($error)){echo ucfirst($achternaam);}?>" />
 								</div>
 							</div>
 						</div>
@@ -300,29 +205,27 @@ include('nav.php');
 						<label for="naam" class="cols-sm-2 control-label">Rijbewijs type(s)</label>
 						<div class="form-group">
 							<label>
-								<input type="checkbox" class="checkbox" name="rijbewijs_B" value="1" onclick='deRequire("checkbox")' required> <span class="label-text">B</span>
+								<input type="checkbox" class="checkbox" name="rijbewijs_B" value="1"> 
+								<span class="label-text">B</span>
 							</label>
 							<label class="checkbox2">
-								<input type="checkbox" class="checkbox" name="rijbewijs_BE" value="2" onclick='deRequire("checkbox")' required> <span class="label-text">BE</span>
+								<input type="checkbox" class="checkbox" name="rijbewijs_BE" value="2"> 
+								<span class="label-text">BE</span>
 							</label>
 						</div>
 						<div class="form-group">
 							<label>
-								<input type="checkbox" class="checkbox" name="rijbewijs_C" value="3" onclick='deRequire("checkbox")' required> <span class="label-text">C</span>
+								<input type="checkbox" class="checkbox" name="rijbewijs_C" value="3"> 
+								<span class="label-text">C</span>
 							</label>
 							<label class="checkbox4">
-								<input type="checkbox" class="checkbox" name="rijbewijs_CE" value="4" onclick='deRequire("checkbox")' required> <span class="label-text">CE</span>
+								<input type="checkbox" class="checkbox" name="rijbewijs_CE" value="4"> 
+								<span class="label-text">CE</span>
 							</label>
 						</div>
 						<div class="form-group ">
 							<button type="submit" class="btn btn-primary btn-lg btn-block login-button" name="submit">Registreer</button>
 						</div>
-						<?php
-							if(isset($_POST['submit'])) {
-								$registerfunction->saveregisterAction();
-
-							}
-						?>
 					</form>
 				</div>
 			</div>

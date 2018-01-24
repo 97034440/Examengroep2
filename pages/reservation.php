@@ -1,7 +1,7 @@
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <?php require'../init.php'; ?>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
@@ -11,9 +11,11 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
     <!-- Bootstrap core CSS -->
     <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="../css/style.css">
     <!-- Custom styles for this template -->
+    <link href="../css/shop-homepage.css" rel="stylesheet">
+
   </head>
+
   <body>
     <!-- Navigation -->
     <?php
@@ -21,12 +23,15 @@ include('nav.php');
 ?>
 
     <!-- Page Content -->
-        <!-- /.container -->
     <div class="container">
-      <div class="row main">
-            <div> u reservering is succesvol</div>
-       </div>
+      <div class="row">
+          <?php
+      include('../functions/object.php');
+      ?>
+      </div>
     </div>
+    <!-- /.container -->
+
     <!-- Footer -->
     <footer class="py-5 bg-dark">
       <div class="container">

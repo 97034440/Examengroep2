@@ -89,7 +89,7 @@ $objectidhref = "#".$object->chassinummer;
         $regdate1 = $datetime->format('Y-m-d');
         $regdate2 = $datetime->format('Y-m-d');
         ?>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
         <form class="form-horizontal" method="post" action="">
           <div class="form-group">
             <?php echo '<input value="'.$regdate1.'" type="date" name="first" id="first" min="'.$regdate1.'">'?>
@@ -113,29 +113,13 @@ $objectidhref = "#".$object->chassinummer;
         </div>
         <?php
       endforeach; ?> -->
-      <script>
-      var date1 = new Date("7/13/2010");
-      var date2 = new Date("12/15/2010");
-      var timeDiff = Math.abs(date2.getTime() - date1.getTime());
-      var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
-      document.write(diffDays);
+          </br>
 
-      <script>
-      var date1 = document.getElementById('first').value;
-      var date2 = document.getElementById('second').value;
-      document.write(date1);
-      document.write(date2);
-      var timeDiff = Math.abs(date2.getTime() - date1.getTime());
-      var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
-      document.write(diffDays);
-      </script>
-      </script>
     </div>
 
   </div>
 </html>
 <?php
-
 if ( isset($_POST['submit']) ){
   $reserverdate = $_POST['first'];
   $datumterug = $_POST['second'];

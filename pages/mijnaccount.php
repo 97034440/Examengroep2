@@ -1,3 +1,13 @@
+<?php
+
+    include_once('../functions/mijnaccount.php');
+    $accountfunction = new AccountFunction();
+    $accountgegevens = $accountfunction->getAccountAction();
+    $klantgegevens_id = $accountfunction->getAccountAction();
+    $klantgegevens = $accountfunction->getKlantAction();
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -24,30 +34,30 @@
                         <div class="bg-white pinside40 mb30">
 
                             <div class="add_listing_info">
-                    <h3>Persoonlijke informatie</h3>	
+                            <h3>Persoonlijke informatie</h3>	
                             <div class="form-group">
                                 <label class="col-md-4 control-label" for="name">Voornaam<span class="required">*</span></label>
                                 <div class="col-md-8">
-                                    <input id="name" name="voorletters" type="text" placeholder="Voornaam" class="form-control input-md" required="">
+                                    <input id="name" name="voorletters" type="text" placeholder="Voornaam" class="form-control input-md" value="<?php echo $accountgegevens['voorletters']; ?>" required>
                                 </div>
                             </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-md-4 control-label" for="name">Tussenvoegsel</label>
                                 <div class="col-md-8">
-                                    <input id="name" name="tussenvoegsel" type="text" placeholder="Tussenvoegsel" class="form-control input-md" required="">
+                                    <input id="name" name="tussenvoegsel" type="text" placeholder="Tussenvoegsel" class="form-control input-md" value="<?php echo $accountgegevens['tussenvoegsel']; ?>" required>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-md-4 control-label" for="name">Achternaam<span class="required">*</span></label>
                                 <div class="col-md-8">
-                                    <input id="name" name="achternaam" type="text" placeholder="Achternaam" class="form-control input-md" required="">
+                                    <input id="name" name="achternaam" type="text" placeholder="Achternaam" class="form-control input-md" value="<?php echo $accountgegevens['achternaam']; ?>">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-md-4 control-label" for="name">Email<span class="required">*</span></label>
                                 <div class="col-md-8">
-                                    <input id="name" name="email" type="text" placeholder="Email" class="form-control input-md" required="">
+                                    <input id="name" name="email" type="text" placeholder="Email" class="form-control input-md" value="<?php echo $accountgegevens['email']; ?>" required>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -133,19 +143,19 @@
                             <div class="form-group">
                                 <label class="col-md-4 control-label" for="oldpassword">Huidig wachtwoord</label>
                                 <div class="col-md-8">
-                                    <input id="oldpassword" name="huidig_wachtwoord" type="text" placeholder="Huidig wachtwoord" class="form-control input-md" required="">
+                                    <input id="oldpassword" name="huidig_wachtwoord" type="password" placeholder="Huidig wachtwoord" class="form-control input-md" required>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-md-4 control-label" for="newpassword">Nieuw wachtwoord</label>
                                 <div class="col-md-8">
-                                    <input id="newpassword" name="nieuw_wachtwoord" type="text" placeholder="Nieuw wachtwoord" class="form-control input-md" required="">
+                                    <input id="newpassword" name="nieuw_wachtwoord" type="password" placeholder="Nieuw wachtwoord" class="form-control input-md" required="">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-md-4 control-label" for="ConfirmPassword">Herhaal wachtwoord</label>
                                 <div class="col-md-8">
-                                    <input id="ConfirmPassword" name="herhaal_wachtwoord" type="text" placeholder="Herhaal wachtwoord" class="form-control input-md" required="">
+                                    <input id="ConfirmPassword" name="herhaal_wachtwoord" type="password" placeholder="Herhaal wachtwoord" class="form-control input-md" required="">
                                 </div>
                             </div>
                             <div class="form-group">

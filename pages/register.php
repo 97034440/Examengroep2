@@ -129,15 +129,6 @@
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="naam" class="cols-sm-2 control-label">Mobiel</label>
-							<div class="cols-sm-10">
-								<div class="input-group">
-									<span class="input-group-addon"><i class="fa fa-phone fa" aria-hidden="true"></i></span>
-									<input type="text" class="form-control" name="mobiel" id="mobiel" placeholder="Voer je mobiel in" value="<?php if(isset($error)){echo $mobiel;}?>" />
-								</div>
-							</div>
-						</div>
-						<div class="form-group">
 							<label for="naam" class="cols-sm-2 control-label">Telefoonnummer</label>
 							<div class="cols-sm-10">
 								<div class="input-group">
@@ -219,7 +210,7 @@
 								<span class="label-text">C</span>
 							</label>
 							<label class="checkbox4">
-								<input type="checkbox" class="checkbox" name="rijbewijs_CE" value="4" value="<?php if(isset($error)){echo $rijbewijs_CE;}?>"> 
+								<input type="checkbox" class="checkbox" name="rijbewijs_CE" value="4" value="<?php if(isset($error)){echo $rijbewijs_CE;} ?> "> 
 								<span class="label-text">CE</span>
 							</label>
 						</div>

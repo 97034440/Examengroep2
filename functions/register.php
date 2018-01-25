@@ -13,26 +13,22 @@ class RegisterFunction {
 		$this->registerModules = new RegisterModules();
 	}
 
-	// function __construct(){
-	// 	$this->registerModules = new RegisterModules();
-	// }
-
 	public function saveregisterAction() {
 		$anw = [
+			'voorletters' => $_POST['voorletters'],
+			'tussenvoegsel' => $_POST['tussenvoegsel'],
+			'achternaam' => $_POST['achternaam'],
 			'email' => $_POST['email'],
 			'gebruikersnaam' => $_POST['gebruikersnaam'],
 			'wachtwoord' => $_POST['wachtwoord'],
 			'wachtwoord_controle' => $_POST['wachtwoord_controle'],
-			'achternaam' => $_POST['achternaam'],
-			'postcode' => $_POST['postcode'],
 			'telefoonnummer' => $_POST['telefoonnummer'],
-			'tussenvoegsel' => $_POST['tussenvoegsel'],
-			'voorletters' => $_POST['voorletters'],
 			'adres' => $_POST['adres'],
+			'postcode' => $_POST['postcode'],
 			'woonplaats' => $_POST['woonplaats'],
 			'rijbewijsnummer' => $_POST['rijbewijsnummer'],
 			'rijbewijs_afgifte' => $_POST['rijbewijs_afgifte'],
-			'rijbewijs_geldigtot' => $_POST['rijbewijs_geldigtot'],
+			'rijbewijs_geldigtot' => $_POST['rijbewijs_geldigtot']
 		];
 
 		$error = $this->checkInput();
@@ -133,7 +129,9 @@ class RegisterFunction {
 		if($rijbewijs_geldigtot == "") {
 			array_push($error, "Voer een rijbewijs geldig tot in!");
 		}
-		// if(!isset($_POST['rijbewijs_B']) OR !$_POST['rijbewijs_BE'] OR !$_POST['rijbewijs_C'] OR !$_POST['rijbewijs_CE']) {
+		// if($_POST['rijbewijs_B'] == '1') echo"selected='selected'"; 
+		// elseif ($_POST['rijbewijs_BE'] == 2) echo "selected='selected'"; elseif ($_POST['rijbewijs_C'] == 3) echo "selected='selected'"; elseif ($_POST['rijbewijs_CE'] == 4) echo "selected='selected'"; 
+		// {
 		// 	array_push($error, "Selecteer minimaal 1 rijbewijs!");
 		// }
 		else {

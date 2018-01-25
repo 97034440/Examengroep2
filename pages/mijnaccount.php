@@ -1,16 +1,11 @@
 <?php
-
     include_once('../functions/mijnaccount.php');
     $accountfunction = new AccountFunction();
     $accountgegevens = $accountfunction->getAccountAction();
     if(isset($_POST['submit'])) {
         $return = $accountfunction->updateAccountAction();
-        extract($return);
-        if(isset($anw)){
-            extract($anw);
-        }
     }
-
+    // var_dump($accountfunction); exit();
 
 ?>
 <!DOCTYPE html>
@@ -137,7 +132,7 @@
                             <label class="col-md-4 control-label" for="naam">Rijbewijs type(s)<span class="required">*</span></label>
                             <div class="form-group">
                                 <label class="col-md-4 control-label">
-                                    <input type="checkbox" class="checkbox" name="rijbewijs_B" value="1" value="<?php if(isset($error)){echo $rijbewijs_B;}?>"> 
+                                    <input type="checkbox" class="checkbox" name="rijbewijs_B" value="1" value="<?php echo $accountgegevens['rijbewijs_B']; ?>"> 
                                     <span class="label-text">B</span>
                                 </label>
                                 <label>

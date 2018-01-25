@@ -130,7 +130,7 @@ class RegisterFunction {
 			array_push($error, "Voer een rijbewijs geldig tot in!");
 		}
 		// if($_POST['rijbewijs_B'] == '1') echo"selected='selected'"; 
-		// elseif ($_POST['rijbewijs_BE'] == 2) echo "selected='selected'"; elseif ($_POST['rijbewijs_C'] == 3) echo "selected='selected'"; elseif ($_POST['rijbewijs_CE'] == 4) echo "selected='selected'"; 
+		// elseif ($_POST['rijbewijs_BE'] == '2') echo "selected='selected'"; elseif ($_POST['rijbewijs_C'] == '3') echo "selected='selected'"; elseif ($_POST['rijbewijs_CE'] == '4') echo "selected='selected'"; 
 		// {
 		// 	array_push($error, "Selecteer minimaal 1 rijbewijs!");
 		// }

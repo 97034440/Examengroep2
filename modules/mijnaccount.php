@@ -49,28 +49,14 @@ Class AccountModules {
 		return $array;
 	}
 
-	public function accountUpdate() {
+	public function accountUpdate($anw) {
 		$user = $_SESSION['username'];
+		$email = $anw['email'];
 
 		$stmt = $this->pdo->prepare("UPDATE accountgegevens SET email=:email WHERE gebruikersnaam = :username");
-		$stmt->execute(array(":email"=>$email, ":username"=>$user));
+		$stmt->execute(array(':email'=>$email, ':username'=>$user));
 
-		$array = [
-			'email' => $stmt['email'],
-			// 'voorletters' => $userRow2['voorletters'],
-			// 'tussenvoegsel' => $userRow2['tussenvoegsel'],
-			// 'achternaam' => $userRow2['achternaam'],
-			// 'telefoonnummer' => $userRow2['telefoonnummer'],
-			// 'adres' => $userRow2['adres'],
-			// 'postcode' => $userRow2['postcode'],
-			// 'woonplaats' => $userRow2['woonplaats'],
-			// 'rijbewijsnummer' => $userRow3['rijbewijsnummer'],
-			// 'rijbewijs_afgifte' => $userRow3['rijbewijs_afgifte'],
-			// 'rijbewijs_geldigtot' => $userRow3['rijbewijs_geldigtot'],
-			// 'rijbewijstype_id' => $userRow4['rijbewijstype_id'],
-		];
-
-		return $array;
+		return $stmt;
 	}
 
 }

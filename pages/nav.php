@@ -3,7 +3,7 @@
  if(!isset($_SESSION))
      {
          session_start();
-     } 
+     }
  if(isset($_SESSION["username"]))
  {
 	 		echo '<nav class="navbar navbar-expand-lg navbar-light bg-info"><ul>
@@ -13,7 +13,7 @@
  }
  else
  {
-      header("u bent niet ingelogd"); // asl je niet kan inloggen ga je terug naar de login.php
+      header("u bent niet ingelogd"); // als je niet kan inloggen ga je terug naar de login.php
  }
  ?>
 	<nav1 class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
@@ -60,7 +60,6 @@
               </li>';
             }
              ?>
-
 
           </ul>
         </div>

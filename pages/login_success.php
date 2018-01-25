@@ -1,5 +1,5 @@
 <?php
- //login_success.php
+ // Gemaakt door Thom Lisman
  session_start();
  if(isset($_SESSION["username"]))
  {
@@ -8,16 +8,6 @@
  }
  else
  {
-      header("location:login.php"); // asl je niet kan inloggen ga je terug naar de login.php
+      header("location:login.php"); // als je niet kan inloggen ga je terug naar de login.php
  }
  ?>
-
- <?php
-  //  session_start();
-  //    if($_SESSION['logged']==true){
-  //        echo $_SESSION["username"];
-  //        echo '<a href="logout.php"><span>Logout</span></a></li>';
-  //        }
-  //    elseif($_SESSION['logged']==false)
-  //        echo '<a href="registerform.html"><span>Login/Register</span></a></li>';
-  //    ?>

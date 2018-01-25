@@ -27,6 +27,10 @@ $objectidhref = "#".$object->chassinummer;
 ?>
 <div class="container objectload">
   <div class="row">
+    <?php
+    if ( isset($_POST['submit']) ){
+      echo 'Reservering geplaats ga naar mijn reserveringen om deze te bekijken';}
+      ?>
     <div class="col-lg-9">
       <?php echo '<div id="'.$objectnumber.'" class="carousel slide my-4" data-ride="carousel">' ?>
         <div class="carousel-inner" role="listbox">
@@ -99,7 +103,6 @@ $objectidhref = "#".$object->chassinummer;
           </form>
       </div>
       <?php endforeach; ?>
-
 
       <!-- <?php
       foreach ($opties as $optie):

@@ -20,14 +20,7 @@ Class AccountFunction {
 		return $accountgegevens;
 	}
 
-	public function getKlantAction() {
-		$klantgegevens_id = $this->AccountModules->accountgegevens();
-		$klantgegevens = $this->AccountModules->klantGegevens();
-		return $klantgegevens_id;
-		return $klantgegevens;
-	}
-
-	public function editAccountAction() {
+	public function updateAccountAction() {
 		$anw = [
 			'voorletters' => $_POST['voorletters'],
 			'tussenvoegsel' => $_POST['tussenvoegsel'],
@@ -44,8 +37,10 @@ Class AccountFunction {
 			'rijbewijs_afgifte' => $_POST['rijbewijs_afgifte'],
 			'rijbewijs_geldigtot' => $_POST['rijbewijs_geldigtot']
 		];
-	}
 
+		$update = $this->AccountModules->accountUpdate($anw);
+		return $update;
+	}
 }
 
 ?>

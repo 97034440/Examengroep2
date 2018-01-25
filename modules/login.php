@@ -23,7 +23,7 @@
                 $count = $statement->rowCount();
                 if($count > 0) {
                      $_SESSION["username"] = $_POST["username"];
-                     header("location:../index.php");
+                     header("location:../pages/reservation.php");
 
                 } else {
                      $message = '<label>Verkeerde gegevens</label>';

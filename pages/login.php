@@ -10,24 +10,25 @@ connection::connect($config['database']);
 
 
 ?>
+<!-- CSS -->
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="../vendor/bootstrap/css/bootstrap.css">
-<!-- CSS -->
 <link rel="stylesheet" type="text/css" href="../css/style.css">
-<!-- CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" type="text/css"  />
+<link rel="stylesheet" href="style.css" type="text/css"  />
 
 <!-- Google Fonts -->
 <link href='https://fonts.googleapis.com/css?family=Passion+One' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
+
 <title>Login</title>
-<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" type="text/css"  />
-<link rel="stylesheet" href="style.css" type="text/css"  />
+
+
 <script src='https://www.google.com/recaptcha/api.js'></script>
 <script type="text/javascript">
     function get_action() {
         var v = grecaptcha.getResponse();
-        console.log("Resp" + v);
         if (v == '') {
             document.getElementById('captcha').innerHTML = "Voer een Captcha in";
             return false;
@@ -62,6 +63,7 @@ include('nav.php'); // navigatie
           <input type="password" name="password" class="form-control" />
           <br>
           <div class="g-recaptcha" data-theme="dark" data-sitekey="6Lf3dUIUAAAAAPIklSoncirr3vjZdbEwq-8a_jPi"></div>
+          <br>
           <input type="submit" name="login" class="btn btn-info" value="Login" />
           <asp:Button ID="Button1" runat="server"
           Text="Button" />

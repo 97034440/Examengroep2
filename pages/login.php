@@ -29,11 +29,11 @@ connection::connect($config['database']);
         var v = grecaptcha.getResponse();
         console.log("Resp" + v);
         if (v == '') {
-            document.getElementById('captcha').innerHTML = "You can't leave Captcha Code empty";
+            document.getElementById('captcha').innerHTML = "Voer een Captcha in";
             return false;
         }
         else {
-            document.getElementById('captcha').innerHTML = "Captcha completed";
+            document.getElementById('captcha').innerHTML = "Captcha geslaagd";
             return true;
         }
     }

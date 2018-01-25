@@ -1,6 +1,7 @@
 <!DOCTYPE html>
  <html>
- <head>
+ <head runat="server">
+
    <!-- Gemaakt door Thom Lisman -->
 <?php
 require_once '../init.php';
@@ -23,6 +24,20 @@ connection::connect($config['database']);
 <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" type="text/css"  />
 <link rel="stylesheet" href="style.css" type="text/css"  />
 <script src='https://www.google.com/recaptcha/api.js'></script>
+<script type="text/javascript">
+    function get_action() {
+        var v = grecaptcha.getResponse();
+        console.log("Resp" + v);
+        if (v == '') {
+            document.getElementById('captcha').innerHTML = "You can't leave Captcha Code empty";
+            return false;
+        }
+        else {
+            document.getElementById('captcha').innerHTML = "Captcha completed";
+            return true;
+        }
+    }
+</script>
 </head>
 <body>
 
@@ -39,15 +54,18 @@ include('nav.php'); // navigatie
         }  // geeft de meldingen aan als je niet kan inloggen
       ?>
       <h3 align="">Inloggen</h3><br />
-        <form method="post">
+        <form method="post" runat="server" onsubmit="return get_action();">
           <label>Gebruikersnaam</label>
           <input type="text" name="username" class="form-control" />
-          <br>
+          <br
           <label>Wachtwoord</label>
           <input type="password" name="password" class="form-control" />
           <br>
-          <div class="g-recaptcha" data-theme="dark" data-sitekey="6LfM6kEUAAAAAIScEuUGwfrywBPjEupp6O-uNWTZ"></div>
+          <div class="g-recaptcha" data-theme="dark" data-sitekey="6Lf3dUIUAAAAAPIklSoncirr3vjZdbEwq-8a_jPi"></div>
           <input type="submit" name="login" class="btn btn-info" value="Login" />
+          <asp:Button ID="Button1" runat="server"
+          Text="Button" />
+          <div id="captcha"></div>
         </form>
       </div>
   </body>

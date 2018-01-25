@@ -4,7 +4,6 @@
 <?php
 require_once '../init.php';
 include('../modules/login.php');
-session_start();
 connection::connect($config['database']);
 
 
@@ -52,7 +51,7 @@ include('nav.php');
                      <label>Wachtwoord</label>
                      <input type="password" name="password" class="form-control" />
                      <br />
-                     <div class="g-recaptcha" data-sitekey="6LfM6kEUAAAAAIScEuUGwfrywBPjEupp6O-uNWTZ"></div>
+                     <div class="g-recaptcha" data-theme="dark" data-sitekey="6LfM6kEUAAAAAIScEuUGwfrywBPjEupp6O-uNWTZ"></div>
                      <input type="submit" name="login" class="btn btn-info" value="Login" />
                 </form>
            </div>

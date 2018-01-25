@@ -1,6 +1,9 @@
 <?php
  //login_success.php
- session_start();
+ if(!isset($_SESSION))
+     {
+         session_start();
+     } 
  if(isset($_SESSION["username"]))
  {
 	 		echo '<nav class="navbar navbar-expand-lg navbar-light bg-info"><ul>
@@ -30,11 +33,15 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="http://localhost/Examengroep2/pages/reserveren.php">Reserveren</a>
+                <a class="nav-link" href="http://localhost/Examengroep2/pages/reservation.php">Reservation</a>
+              </li>
+			  <li class="nav-item">
+                <a class="nav-link" href="http://localhost/Examengroep2/pages/reservations.php"">Reservations</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="http://localhost/Examengroep2/pages/mijnaccount.php"">Mijn account</a>
               </li>
+
               <li class="nav-item">
                 <a class="nav-link" href="http://localhost/Examengroep2/pages/logout.php"">Logout</a>
               </li>';

@@ -33,7 +33,7 @@
         Heeft u nog geen account? <a href="http://localhost/Examengroep2/pages/register.php">Registreer nu. </a><br>
         Voor vragen neem contact op met ons.<br>
         Mobiel: 06-12345678  <br>
-        Email: beheer@dedissel.com
+        Email: beheer@dedissel.com <br>
         </p>
         </div>
         </form>

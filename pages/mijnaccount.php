@@ -3,8 +3,13 @@
     include_once('../functions/mijnaccount.php');
     $accountfunction = new AccountFunction();
     $accountgegevens = $accountfunction->getAccountAction();
-    $klantgegevens_id = $accountfunction->getAccountAction();
-    $klantgegevens = $accountfunction->getKlantAction();
+    if(isset($_POST['submit'])) {
+        $return = $accountfunction->updateAccountAction();
+        extract($return);
+        if(isset($anw)){
+            extract($anw);
+        }
+    }
 
 
 ?>
@@ -26,11 +31,35 @@
     <body>   
     <?php
         include('nav.php');
+        if(!isset($_SESSION['username'])){ 
+        header("Location: /Examengroep2");
+}
     ?>
         <div class="col-md-12 profile-dashboard">
             <div class="row">
                 <div class="col-md-7 dashboard-form calender">
                     <form class="form-horizontal">
+                        <?php
+                        if(isset($error))
+                        {
+                            foreach($error as $error)
+                            {
+                                 ?>
+                                 <div class="alert alert-danger">
+                                    <i class="glyphicon glyphicon-warning-sign"></i> &nbsp; <?php echo $error ?>
+                                 </div>
+                                 <?php
+                            }
+                        }
+                        if(isset($message))
+                        {
+                             ?>
+                             <div class="alert alert-success">
+                                <i class="glyphicon glyphicon-ok"></i> &nbsp; <?php echo $message ?>
+                             </div>
+                            <?php
+                        }
+                        ?>
                         <div class="bg-white pinside40 mb30">
 
                             <div class="add_listing_info">
@@ -45,7 +74,7 @@
                             <div class="form-group">
                                 <label class="col-md-4 control-label" for="name">Tussenvoegsel</label>
                                 <div class="col-md-8">
-                                    <input id="name" name="tussenvoegsel" type="text" placeholder="Tussenvoegsel" class="form-control input-md" value="<?php echo $accountgegevens['tussenvoegsel']; ?>" required>
+                                    <input id="name" name="tussenvoegsel" type="text" placeholder="Tussenvoegsel" class="form-control input-md" value="<?php echo $accountgegevens['tussenvoegsel']; ?>">
                                 </div>
                             </div>
                             <div class="form-group">
@@ -63,25 +92,25 @@
                             <div class="form-group">
                                 <label class="col-md-4 control-label" for="name">Telefoonnummer<span class="required">*</span></label>
                                 <div class="col-md-8">
-                                    <input id="name" name="telefoonnummer" type="text" placeholder="Telefoonnummer" class="form-control input-md" required="">
+                                    <input id="name" name="telefoonnummer" type="text" placeholder="Telefoonnummer" class="form-control input-md" value="<?php echo $accountgegevens['telefoonnummer']; ?>" required>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-md-4 control-label" for="name">Adres<span class="required">*</span></label>
                                 <div class="col-md-8">
-                                    <input id="name" name="adres" type="text" placeholder="Adres" class="form-control input-md" required="">
+                                    <input id="name" name="adres" type="text" placeholder="Adres" class="form-control input-md" value="<?php echo $accountgegevens['adres']; ?>" required>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-md-4 control-label" for="name">Postcode<span class="required">*</span></label>
                                 <div class="col-md-8">
-                                    <input id="name" name="postcode" type="text" placeholder="Postcode" class="form-control input-md" required="">
+                                    <input id="name" name="postcode" type="text" placeholder="Postcode" class="form-control input-md" value="<?php echo $accountgegevens['postcode']; ?>" required>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-md-4 control-label" for="name">Woonplaats<span class="required">*</span></label>
                                 <div class="col-md-8">
-                                    <input id="name" name="woonplaats" type="text" placeholder="Woonplaats" class="form-control input-md" required="">
+                                    <input id="name" name="woonplaats" type="text" placeholder="Woonplaats" class="form-control input-md" value="<?php echo $accountgegevens['woonplaats']; ?>" required>
                                 </div>
                             </div>
                             <br>
@@ -89,19 +118,19 @@
                             <div class="form-group">
                                 <label class="col-md-4 control-label" for="name">Rijbewijsnummer<span class="required">*</span></label>
                                 <div class="col-md-8">
-                                    <input id="name" name="rijbewijsnummer" type="text" placeholder="Rijbewijsnummer" class="form-control input-md" required="">
+                                    <input id="name" name="rijbewijsnummer" type="text" placeholder="Rijbewijsnummer" class="form-control input-md" value="<?php echo $accountgegevens['rijbewijsnummer']; ?>" required>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-md-4 control-label" for="name">Rijbewijs afgifte<span class="required">*</span></label>
                                 <div class="col-md-8">
-                                    <input id="name" name="rijbewijs_afgifte" type="text" placeholder="Rijbewijs afgifte" class="form-control input-md" required="">
+                                    <input id="name" name="rijbewijs_afgifte" type="text" placeholder="Rijbewijs afgifte" class="form-control input-md" value="<?php echo $accountgegevens['rijbewijs_afgifte']; ?>" required>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-md-4 control-label" for="name">Rijbewijs geldig tot<span class="required">*</span></label>
                                 <div class="col-md-8">
-                                    <input id="name" name="rijbewijs_geldigtot" type="text" placeholder="Rijbewijs geldig tot" class="form-control input-md" required="">
+                                    <input id="name" name="rijbewijs_geldigtot" type="text" placeholder="Rijbewijs geldig tot" class="form-control input-md" value="<?php echo $accountgegevens['rijbewijs_geldigtot']; ?>" required>
                                 </div>
                             </div>
 

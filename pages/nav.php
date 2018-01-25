@@ -1,5 +1,5 @@
 <?php
- //login_success.php
+ // Gemaakt door Thom Lisman
  if(!isset($_SESSION))
      {
          session_start();
@@ -43,7 +43,7 @@
               </li>
 
               <li class="nav-item">
-                <a class="nav-link" href="http://localhost/Examengroep2/pages/logout.php"">Logout</a>
+                <a class="nav-link" href="http://localhost/Examengroep2/pages/logout.php"">Uitloggen</a>
               </li>';
             }
             else

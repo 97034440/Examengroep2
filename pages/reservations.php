@@ -36,6 +36,7 @@ $accountgegevens = $query->selectImage('ordernummer', 'klant_id', $username);
             <ul>
               <li>Ordernummer: <?php echo $reservation->ordernummer;?></li>
               <li>Accountnaam: <?php echo $reservation->klant_id;?></li>
+              <li>Object: <?php echo $reservation->object_id;?></li>
               <li>Order datum: <?php echo $reservation->orderdatum;?></li>
               <li>Datum uitgaven: <?php echo $reservation->datum_uit;?></li>
               <li>Datum teruggaven: <?php echo $reservation->datum_terug;?></li>

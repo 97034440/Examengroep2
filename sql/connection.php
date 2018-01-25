@@ -1,6 +1,7 @@
 <?php
 
 class connection {
+  // @author: Ljubomir Miodrag
   //static function voor de connectie zodat deze makerlijker aangemaakt kan worden
   //Voorbeeld $pdo = connection::connect($config['database']); maakt een variable die connectie met de database maakt
   //database connection heeft wel gegevens nodig van de config.php

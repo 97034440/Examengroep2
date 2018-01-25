@@ -1,4 +1,5 @@
 <?php
+// @author: Ljubomir Miodrag
 require'../init.php';
  ?>
 <!DOCTYPE html>
@@ -25,6 +26,9 @@ $query = new Querybuilder(connection::connect($config['database']));
 $username = $_SESSION["username"];
 $reservations = $query->selectImage('ordernummer', 'klant_id', $username);
 $accountgegevens = $query->selectImage('ordernummer', 'klant_id', $username);
+if(!isset($_SESSION['username'])){ //if login in session is not set
+    header("Location: /Examengroep2");
+}
 ?>
 
     <!-- Page Content -->

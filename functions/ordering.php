@@ -1,6 +1,7 @@
 <?php
-include('../modules/bestel.php');
+// @author: Ljubomir Miodrag
 
+include('../modules/order.php');
 require_once '../init.php';
 $object_id = $_GET['product'];
 $query = new Querybuilder(connection::connect($config['database']));

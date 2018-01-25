@@ -1,4 +1,5 @@
 <?php
+// @author: Ljubomir Miodrag
 //config file voor de database
 return [
     'database' => [

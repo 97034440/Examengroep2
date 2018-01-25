@@ -25,7 +25,7 @@ include('nav.php');
     <div class="container">
       <div class="row main">
       <?php
-      include('../functions/bestellen.php');
+      include('../functions/ordering.php');
        ?>
        </div>
     </div>

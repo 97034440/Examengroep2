@@ -33,10 +33,10 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="http://localhost/Examengroep2/pages/reservation.php">Reservation</a>
+                <a class="nav-link" href="http://localhost/Examengroep2/pages/reservation.php">Reserveren</a>
               </li>
 			  <li class="nav-item">
-                <a class="nav-link" href="http://localhost/Examengroep2/pages/reservations.php"">Reservations</a>
+                <a class="nav-link" href="http://localhost/Examengroep2/pages/reservations.php"">Mijn Reserveringen</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="http://localhost/Examengroep2/pages/mijnaccount.php"">Mijn account</a>

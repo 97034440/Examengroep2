@@ -1,4 +1,5 @@
 <?php
+// @author: Ljubomir Miodrag
 class Querybuilder {
 
 protected $pdo;

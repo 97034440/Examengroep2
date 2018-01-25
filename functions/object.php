@@ -1,4 +1,7 @@
 <?php
+// @author: Ljubomir Miodrag
+?>
+<?php
 //ik roep de query class aan en stuur de pdo verbinding gegevens mee.
 $query = new Querybuilder(connection::connect($config['database']));
 //roept de selectAll function aan van de querybuilder en stuurt de tabelnaam

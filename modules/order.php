@@ -1,4 +1,7 @@
 <?php
+// @author: Ljubomir Miodrag
+?>
+<?php
 class Reserveer {
 
 protected $pdo;
@@ -25,8 +28,8 @@ protected $pdo;
     $datumteruggave = htmlspecialchars($datumterug);
     //selecteerd alles uit de tabelnaam die je hebt meegegeven.
     $statement = $this->pdo->prepare("INSERT INTO `examen`.`ordernummer`
-      (`ordernummer`, `klant_id`, `test_id`, `object_id`, `orderdatum`, `datum_uit`, `datum_terug`)
-      VALUES (NULL, '{$klantid}', '2', {$object}, '{$currentDate}', '{$datumuitgave}', '{$datumteruggave}');");
+      (`ordernummer`, `klant_id`, `object_id`, `orderdatum`, `datum_uit`, `datum_terug`)
+      VALUES (NULL, '{$klantid}', {$object}, '{$currentDate}', '{$datumuitgave}', '{$datumteruggave}');");
     // statement uitvoeren.
     $statement->execute();
     // alles uit de database lezen.

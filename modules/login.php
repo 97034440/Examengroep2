@@ -1,13 +1,6 @@
 <?php
+// Gemaakt door Thom Lisman
 
-// require'../sql/connection.php';
-//
-// $pdo = connection::connect($config['database']);
-//
-// $statement = $pdo->prepare("SELECT * FROM accountgegevens");
-// $result = $statement->execute();
-// $obj = $statement->fetch();
-// var_dump($obj);
 
  session_start();
  try {
@@ -36,15 +29,6 @@
                      $message = '<label>Verkeerde gegevens</label>';
                 }
            }
-          //  if($count==1){
-          //     session_start();
-          //     $_SESSION['logged']=true;
-          //     $_SESSION ['username']=$config;
-          //     header("refresh:1;url=../index.php");
-          //     }
-          //     else{
-          //     $_SESSION['logged']=false;
-          //     header("refresh:2;url=login.php");}
 
       }
 

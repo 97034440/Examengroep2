@@ -24,10 +24,8 @@ protected $pdo;
     $objectidinsert = htmlspecialchars($objectid);
     //selecteerd alles uit de tabelnaam die je hebt meegegeven.
     $statement = $this->pdo->prepare("SELECT * FROM {$tableinsert} WHERE {$rowinsert} = '{$objectidinsert}'");
-
     // statement uitvoeren.
     $statement->execute(array("\xbf\x27 OR 1=1 /*"));
-
     return $statement->fetchAll(PDO::FETCH_CLASS);
     // alles uit de database lezen.
   }

@@ -42,7 +42,7 @@
 	               	</div>
 	            </div>
 				<div class="main-login main-center">
-					<form class="form-horizontal" method="post" action="../pages/register.php">
+					<form class="form-horizontal" method="post" action="">
 						<?php
 						if(isset($error))
 						{
@@ -196,21 +196,21 @@
 						<label for="naam" class="cols-sm-2 control-label">Rijbewijs type(s)</label>
 						<div class="form-group">
 							<label>
-								<input type="checkbox" class="checkbox" name="rijbewijs_B" value="1" value="<?php if(isset($error)){echo $rijbewijs_B;}?>"> 
+								<input type="checkbox" class="checkbox" name="rijbewijs_B" value="1" <?php if(isset($_POST['rijbewijs_B'])) echo "checked='checked'"; ?>/>
 								<span class="label-text">B</span>
 							</label>
 							<label class="checkbox2">
-								<input type="checkbox" class="checkbox" name="rijbewijs_BE" value="2" value="<?php if(isset($error)){echo $rijbewijs_BE;}?>"> 
+								<input type="checkbox" class="checkbox" name="rijbewijs_BE" value="2" <?php if(isset($_POST['rijbewijs_BE'])) echo "checked='checked'"; ?>/>
 								<span class="label-text">BE</span>
 							</label>
 						</div>
 						<div class="form-group">
 							<label>
-								<input type="checkbox" class="checkbox" name="rijbewijs_C" value="3" value="<?php if(isset($error)){echo $rijbewijs_C;}?>"> 
+								<input type="checkbox" class="checkbox" name="rijbewijs_C" value="3" <?php if(isset($_POST['rijbewijs_C'])) echo "checked='checked'"; ?>/>
 								<span class="label-text">C</span>
 							</label>
 							<label class="checkbox4">
-								<input type="checkbox" class="checkbox" name="rijbewijs_CE" value="4" value="<?php if(isset($error)){echo $rijbewijs_CE;} ?> "> 
+								<input type="checkbox" class="checkbox" name="rijbewijs_CE" value="4" <?php if(isset($_POST['rijbewijs_CE'])) echo "checked='checked'"; ?> />
 								<span class="label-text">CE</span>
 							</label>
 						</div>

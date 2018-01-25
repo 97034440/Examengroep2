@@ -1,3 +1,7 @@
+<?php
+// @author: Ljubomir Miodrag
+
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -20,6 +24,9 @@
     <!-- Navigation -->
     <?php
 include('nav.php');
+if(!isset($_SESSION['username'])){ //if login in session is not set
+    header("Location: /Examengroep2");
+}
 ?>
 
     <!-- Page Content -->

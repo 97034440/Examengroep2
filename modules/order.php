@@ -1,4 +1,7 @@
 <?php
+// @author: Ljubomir Miodrag
+?>
+<?php
 class Reserveer {
 
 protected $pdo;

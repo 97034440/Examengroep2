@@ -1,6 +1,6 @@
 <?php
  // Gemaakt door Thom Lisman
- if(!isset($_SESSION))
+ if(!isset($_SESSION)) //negeert als een extra sessie word gestart
      {
          session_start();
      }
@@ -26,7 +26,7 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
             <?php
-            if(isset($_SESSION["username"]))
+            if(isset($_SESSION["username"])) // if else statement met de menu balk
             {
               echo '<li class="nav-item">
                 <a class="nav-link" href="http://localhost/Examengroep2/">Home

@@ -1,12 +1,12 @@
 <!DOCTYPE html>
  <html>
- <head runat="server">
+ <head runat="server">  <!-- Is nodig voor de captcha
 
-   <!-- Gemaakt door Thom Lisman -->
+  Gemaakt door Thom Lisman -->
 <?php
 require_once '../init.php';
 include('../modules/login.php');
-connection::connect($config['database']);
+connection::connect($config['database']); // connectie met de database
 
 
 ?>
@@ -24,12 +24,11 @@ connection::connect($config['database']);
 
 <title>Login</title>
 
-
-<script src='https://www.google.com/recaptcha/api.js'></script>
+<script src='https://www.google.com/recaptcha/api.js'></script> <!-- Gemaakt door Thom Lisman -->
 <script type="text/javascript">
-    function get_action() {
+    function get_action() {  // captcha script
         var v = grecaptcha.getResponse();
-        if (v == '') {
+        if (v == '') { // if else statement voor de captcha
             document.getElementById('captcha').innerHTML = "Voer een Captcha in";
             return false;
         }
@@ -62,7 +61,7 @@ include('nav.php'); // navigatie
           <label>Wachtwoord</label>
           <input type="password" name="password" class="form-control" />
           <br>
-          <div class="g-recaptcha" data-theme="dark" data-sitekey="6Lf3dUIUAAAAAPIklSoncirr3vjZdbEwq-8a_jPi"></div>
+          <div class="g-recaptcha" data-theme="dark" data-sitekey="6Lf3dUIUAAAAAPIklSoncirr3vjZdbEwq-8a_jPi"></div> <!-- nodig om een key te hebben -->
           <br>
           <input type="submit" name="login" class="btn btn-info" value="Login" />
           <asp:Button ID="Button1" runat="server"

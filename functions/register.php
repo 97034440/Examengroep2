@@ -138,12 +138,19 @@ class RegisterFunction {
 			$stmt = $this->pdo->prepare("SELECT gebruikersnaam, email FROM accountgegevens WHERE gebruikersnaam = :gebruikersnaam OR email = :email");
 			$stmt->execute(array(':gebruikersnaam' => $gebruikersnaam, ':email' => $email));
 			$row=$stmt->fetch(PDO::FETCH_ASSOC);
-				
+			
+			$stmt2 = $this->pdo->prepare("SELECT rijbewijsnummer FROM rijbewijs WHERE rijbewijsnummer = :rijbewijsnummer");
+			$stmt2->execute(array(':rijbewijsnummer' => $rijbewijsnummer));
+			$row2=$stmt2->fetch(PDO::FETCH_ASSOC);
+
 			if($row['gebruikersnaam'] == $gebruikersnaam) {
 				$error[] = "Deze gebruikersnaam bestaat al!";
 			}
 			else if($row['email'] == $email) {
 				$error[] = "Deze email bestaat al!";
+			}
+			else if($row2['rijbewijsnummer'] == $rijbewijsnummer) {
+				$error[] = "Dit rijbewijsnummer bestaat al";
 			}
 		}	
 

@@ -20,6 +20,43 @@ function deRequire(elClass) {
             }
         }
 
+       function deRequireCb(elClass) {
+            el=document.getElementsByClassName(elClass);
+
+            var atLeastOneChecked=false;//at least one cb is checked
+            for (i=0; i<el.length; i++) {
+                if (el[i].checked === true) {
+                    atLeastOneChecked=true;
+                }
+            }
+
+            if (atLeastOneChecked === true) {
+                for (i=0; i<el.length; i++) {
+                    el[i].required = false;
+                }
+            } else {
+                for (i=0; i<el.length; i++) {
+                    el[i].required = true;
+                }
+            }
+        }
+
+var verifyPaymentType = function () {
+  var checkboxes = $('.wish_payment_type .checkbox');
+  var inputs = checkboxes.find('input');
+  var first = inputs.first()[0];
+
+  inputs.on('change', function () {
+    this.setCustomValidity('');
+  });
+
+  first.setCustomValidity(checkboxes.find('input:checked').length === 0 ? 'Choose one' : '');
+}
+
+$('#submit').click(verifyPaymentType);
+
+$('form').on('submit', function(){alert('ok')})
+
 // mijn account pagina 
 .bg-white {
     background-color: #fff;

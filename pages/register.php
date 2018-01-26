@@ -1,3 +1,4 @@
+<!-- Dit document is gemaakt door Joanne -->
 <?php
 	include_once('../functions/register.php');
   	$registerfunction = new RegisterFunction();
@@ -196,21 +197,21 @@
 						<label for="naam" class="cols-sm-2 control-label">Rijbewijs type(s)</label>
 						<div class="form-group">
 							<label>
-								<input type="checkbox" class="checkbox" name="rijbewijs_B" value="1" <?php if(isset($_POST['rijbewijs_B'])) echo "checked='checked'"; ?> onclick='deRequire("checkbox")' required />
+								<input type="checkbox" class="checkbox" name="rijbewijs_B" value="1" <?php if(isset($_POST['rijbewijs_B'])) echo "checked='checked'"; ?> />
 								<span class="label-text">B</span>
 							</label>
 							<label class="checkbox2">
-								<input type="checkbox" class="checkbox" name="rijbewijs_BE" value="2" <?php if(isset($_POST['rijbewijs_BE'])) echo "checked='checked'"; ?> onclick='deRequire("checkbox")' required />
+								<input type="checkbox" class="checkbox" name="rijbewijs_BE" value="2" <?php if(isset($_POST['rijbewijs_BE'])) echo "checked='checked'"; ?> />
 								<span class="label-text">BE</span>
 							</label>
 						</div>
 						<div class="form-group">
 							<label>
-								<input type="checkbox" class="checkbox" name="rijbewijs_C" value="3" <?php if(isset($_POST['rijbewijs_C'])) echo "checked='checked'"; ?> onclick='deRequire("checkbox")' required />
+								<input type="checkbox" class="checkbox" name="rijbewijs_C" value="3" <?php if(isset($_POST['rijbewijs_C'])) echo "checked='checked'"; ?> />
 								<span class="label-text">C</span>
 							</label>
 							<label class="checkbox4">
-								<input type="checkbox" class="checkbox" name="rijbewijs_CE" value="4" <?php if(isset($_POST['rijbewijs_CE'])) echo "checked='checked'"; ?> onclick='deRequire("checkbox")' required />
+								<input type="checkbox" class="checkbox" name="rijbewijs_CE" value="4" <?php if(isset($_POST['rijbewijs_CE'])) echo "checked='checked'"; ?> />
 								<span class="label-text">CE</span>
 							</label>
 						</div>

@@ -1,3 +1,4 @@
+<!-- Dit document is gemaakt door Joanne -->
 <?php
 
 require('../init.php');
@@ -27,10 +28,10 @@ Class AccountModules {
 		$stmt->execute(array(":id"=>$userRow['klantgegevens_id']));
 		$userRow3=$stmt->fetch(PDO::FETCH_ASSOC);
 
-		$stmt = $this->pdo->prepare("SELECT * FROM rijbewijs_regel WHERE rijbewijsnummer=:rijbewijsnummer");
+		$stmt = $this->pdo->prepare("SELECT * FROM rijbewijsregel WHERE rijbewijsnummer=:rijbewijsnummer");
 		$stmt->execute(array(":rijbewijsnummer"=>$userRow3['rijbewijsnummer']));
 		$userRow4=$stmt->fetch(PDO::FETCH_ASSOC);		
-
+		
 		$array = [
 			'email' => $userRow['email'],
 			'voorletters' => $userRow2['voorletters'],
@@ -43,7 +44,6 @@ Class AccountModules {
 			'rijbewijsnummer' => $userRow3['rijbewijsnummer'],
 			'rijbewijs_afgifte' => $userRow3['rijbewijs_afgifte'],
 			'rijbewijs_geldigtot' => $userRow3['rijbewijs_geldigtot'],
-			'rijbewijstype_id' => $userRow4['rijbewijstype_id'],
 		];
 		
 		return $array;
@@ -52,13 +52,34 @@ Class AccountModules {
 	public function accountUpdate($anw) {
 		$user = $_SESSION['username'];
 		$email = $anw['email'];
+		$voorletters = $anw['voorletters'];
+		$tussenvoegsel = $anw['tussenvoegsel'];
+		$achternaam = $anw['achternaam'];
+		$telefoonnummer = $anw['telefoonnummer'];
+		$adres = $anw['adres'];
+		$postcode = $anw['postcode'];
+		$woonplaats = $anw['woonplaats'];
+		$rijbewijsnummer = $anw['rijbewijsnummer'];
+		$rijbewijs_afgifte = $anw['rijbewijs_afgifte'];
+		$datum_afgifte = date('Y-m-d',strtotime($rijbewijs_afgifte));
+		$rijbewijs_geldigtot = $anw['rijbewijs_geldigtot'];
+		$datum_geldigtot = date('Y-m-d',strtotime($rijbewijs_geldigtot));
 
 		$stmt = $this->pdo->prepare("UPDATE accountgegevens SET email=:email WHERE gebruikersnaam = :username");
 		$stmt->execute(array(':email'=>$email, ':username'=>$user));
 
-		return $stmt;
-	}
+		$stmt2 = $this->pdo->prepare("SELECT * FROM accountgegevens WHERE gebruikersnaam=:username");
+		$stmt2->execute(array(":username"=>$user));
+		$userRow=$stmt2->fetch(PDO::FETCH_ASSOC);
 
+		$stmt3 = $this->pdo->prepare("UPDATE klantgegevens SET voorletters=:voorletters, tussenvoegsel=:tussenvoegsel, achternaam=:achternaam, telefoonnummer=:telefoonnummer, adres=:adres, postcode=:postcode, woonplaats=:woonplaats WHERE id=:id");
+		$stmt3->execute(array(':voorletters'=>$voorletters, ':tussenvoegsel'=>$tussenvoegsel,':achternaam'=>$achternaam, ':telefoonnummer'=>$telefoonnummer, ':adres'=>$adres, ':postcode'=>$postcode, ':woonplaats'=>$woonplaats, ':id'=>$userRow['klantgegevens_id']));
+
+		$stmt4 = $this->pdo->prepare("UPDATE rijbewijs SET rijbewijsnummer=:rijbewijsnummer, rijbewijs_afgifte=:rijbewijs_afgifte, rijbewijs_geldigtot=:rijbewijs_geldigtot WHERE klantgegevens_id=:id");
+		$stmt4->execute(array(':rijbewijsnummer'=>$rijbewijsnummer, ':rijbewijs_afgifte'=>$rijbewijs_afgifte, ':rijbewijs_geldigtot'=>$rijbewijs_geldigtot, ':id'=>$userRow['klantgegevens_id']));
+
+		return $stmt4;
+	}
 }
 
 

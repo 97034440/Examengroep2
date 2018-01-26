@@ -1,3 +1,4 @@
+<!-- Dit document is gemaakt door Joanne -->
 <?php
 session_start();
 $user = $_SESSION['username'];
@@ -26,9 +27,6 @@ Class AccountFunction {
 			'tussenvoegsel' => $_POST['tussenvoegsel'],
 			'achternaam' => $_POST['achternaam'],
 			'email' => $_POST['email'],
-			'gebruikersnaam' => $_POST['gebruikersnaam'],
-			'wachtwoord' => $_POST['wachtwoord'],
-			'wachtwoord_controle' => $_POST['wachtwoord_controle'],
 			'telefoonnummer' => $_POST['telefoonnummer'],
 			'adres' => $_POST['adres'],
 			'postcode' => $_POST['postcode'],
@@ -37,7 +35,6 @@ Class AccountFunction {
 			'rijbewijs_afgifte' => $_POST['rijbewijs_afgifte'],
 			'rijbewijs_geldigtot' => $_POST['rijbewijs_geldigtot']
 		];
-
 		$update = $this->AccountModules->accountUpdate($anw);
 		return $update;
 	}

@@ -6,7 +6,8 @@
         $return = $accountfunction->updateAccountAction();
     }
     $accountgegevens = $accountfunction->getAccountAction();
-
+    // $accountgegevens['rijbewijs_afgifte'] = date('d-m-Y');
+    // $accountgegevens['rijbewijs_geldigtot'] = date('d-m-Y');
 ?>
 <!DOCTYPE html>
 <html lang="en">

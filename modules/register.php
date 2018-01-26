@@ -29,6 +29,7 @@ class RegisterModules
 			$gebruikersnaam = $anw['gebruikersnaam'];
 			$wachtwoord = $anw['wachtwoord'];
 			$wachtwoord_controle = $anw['wachtwoord_controle'];
+			// $hash = password_hash($wachtwoord, PASSWORD_DEFAULT);
 			$status = 1;
 			$admin = 0;
 

@@ -28,9 +28,8 @@ Class AccountModules {
 		$stmt->execute(array(":id"=>$userRow['klantgegevens_id']));
 		$userRow3=$stmt->fetch(PDO::FETCH_ASSOC);
 
-		$stmt = $this->pdo->prepare("SELECT * FROM rijbewijsregel WHERE rijbewijsnummer=:rijbewijsnummer");
-		$stmt->execute(array(":rijbewijsnummer"=>$userRow3['rijbewijsnummer']));
-		$userRow4=$stmt->fetch(PDO::FETCH_ASSOC);		
+		// $userRow33['rijbewijs_afgifte'] = date('d-m-Y');
+  //   	$userRow33['rijbewijs_geldigtot'] = date('d-m-Y');
 		
 		$array = [
 			'email' => $userRow['email'],
@@ -76,7 +75,7 @@ Class AccountModules {
 		$stmt3->execute(array(':voorletters'=>$voorletters, ':tussenvoegsel'=>$tussenvoegsel,':achternaam'=>$achternaam, ':telefoonnummer'=>$telefoonnummer, ':adres'=>$adres, ':postcode'=>$postcode, ':woonplaats'=>$woonplaats, ':id'=>$userRow['klantgegevens_id']));
 
 		$stmt4 = $this->pdo->prepare("UPDATE rijbewijs SET rijbewijsnummer=:rijbewijsnummer, rijbewijs_afgifte=:rijbewijs_afgifte, rijbewijs_geldigtot=:rijbewijs_geldigtot WHERE klantgegevens_id=:id");
-		$stmt4->execute(array(':rijbewijsnummer'=>$rijbewijsnummer, ':rijbewijs_afgifte'=>$rijbewijs_afgifte, ':rijbewijs_geldigtot'=>$rijbewijs_geldigtot, ':id'=>$userRow['klantgegevens_id']));
+		$stmt4->execute(array(':rijbewijsnummer'=>$rijbewijsnummer, ':rijbewijs_afgifte'=>$datum_afgifte, ':rijbewijs_geldigtot'=>$datum_geldigtot, ':id'=>$userRow['klantgegevens_id']));
 
 		return $stmt4;
 	}

@@ -6,8 +6,7 @@
         $return = $accountfunction->updateAccountAction();
     }
     $accountgegevens = $accountfunction->getAccountAction();
-    $accountgegevens['rijbewijs_afgifte'] = date('d-m-Y');
-    $accountgegevens['rijbewijs_geldigtot'] = date('d-m-Y');
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -116,31 +115,6 @@
                         </div>
                     </form>
                 </div>
-<!--                 <div class="col-md-5 dashboard-form">
-                    <form class="form-horizontal">
-                        <div class="bg-white pinside30">
-                            <h2 class="form-title">Rijbewijs gegevens</h2>
-                            <div class="form-group">
-                                <label class="col-md-4 control-label" for="name">Rijbewijsnummer<span class="required">*</span></label>
-                                <div class="col-md-8">
-                                    <input id="name" name="rijbewijsnummer" type="text" placeholder="Rijbewijsnummer" class="form-control input-md" value="<?php echo $accountgegevens['rijbewijsnummer']; ?>" required>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-md-4 control-label" for="name">Rijbewijs afgifte<span class="required">*</span></label>
-                                <div class="col-md-8">
-                                    <input id="name" name="rijbewijs_afgifte" type="text" placeholder="Rijbewijs afgifte" class="form-control input-md" value="<?php echo $accountgegevens['rijbewijs_afgifte']; ?>" required>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-md-4 control-label" for="name">Rijbewijs geldig tot<span class="required">*</span></label>
-                                <div class="col-md-8">
-                                    <input id="name" name="rijbewijs_geldigtot" type="text" placeholder="Rijbewijs geldig tot" class="form-control input-md" value="<?php echo $accountgegevens['rijbewijs_geldigtot']; ?>" required>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-                </div> -->
             </div>
         </div>
         <script type="text/javascript" src="../js/js.js"></script>

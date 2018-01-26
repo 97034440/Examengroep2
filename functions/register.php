@@ -1,3 +1,4 @@
+<!-- Dit document is gemaakt door Joanne -->
 <?php
 
 include('../modules/register.php');
@@ -31,6 +32,8 @@ class RegisterFunction {
 			'rijbewijs_geldigtot' => $_POST['rijbewijs_geldigtot']
 		];
 
+		//Voor er wordt opgeslagen dan wordt er gecheckt of er een error is
+		//Zo ja dan krijg je de velden te zien die niet kloppen
 		$error = $this->checkInput();
 		if(!empty($error))
 		{
@@ -44,6 +47,7 @@ class RegisterFunction {
 		}
 	}
 
+	//Function om te kijken of de velden zijn ingevuld of kloppen
 	private function checkInput() {
 		$voorletters = strip_tags($_POST['voorletters']);	
 		$tussenvoegsel = strip_tags($_POST['tussenvoegsel']);	
@@ -129,11 +133,7 @@ class RegisterFunction {
 		if($rijbewijs_geldigtot == "") {
 			array_push($error, "Voer een rijbewijs geldig tot in!");
 		}
-		// if($_POST['rijbewijs_B'] == '1') echo"selected='selected'"; 
-		// elseif ($_POST['rijbewijs_BE'] == '2') echo "selected='selected'"; elseif ($_POST['rijbewijs_C'] == '3') echo "selected='selected'"; elseif ($_POST['rijbewijs_CE'] == '4') echo "selected='selected'"; 
-		// {
-		// 	array_push($error, "Selecteer minimaal 1 rijbewijs!");
-		// }
+		//Controlleer of de gebruikersnaam of email al bestaan. zo ja dan krijg je een error
 		else {
 			$stmt = $this->pdo->prepare("SELECT gebruikersnaam, email FROM accountgegevens WHERE gebruikersnaam = :gebruikersnaam OR email = :email");
 			$stmt->execute(array(':gebruikersnaam' => $gebruikersnaam, ':email' => $email));
@@ -147,6 +147,7 @@ class RegisterFunction {
 			}
 		}	
 
+		//Return de error
 		return $error;
 	}
 }

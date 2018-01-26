@@ -1,11 +1,11 @@
+<!-- Dit document is gemaakt door Joanne -->
 <?php
     include_once('../functions/mijnaccount.php');
     $accountfunction = new AccountFunction();
-    $accountgegevens = $accountfunction->getAccountAction();
-    if(isset($_POST['submit'])) {
+    if(isset($_POST['submit_user'])) {
         $return = $accountfunction->updateAccountAction();
     }
-    // var_dump($accountfunction); exit();
+    $accountgegevens = $accountfunction->getAccountAction();
 
 ?>
 <!DOCTYPE html>
@@ -27,36 +27,14 @@
     <?php
         include('nav.php');
         if(!isset($_SESSION['username'])){ 
-        header("Location: /Examengroep2");
-}
+            header("Location: /Examengroep2");
+        }
     ?>
         <div class="col-md-12 profile-dashboard">
             <div class="row">
                 <div class="col-md-7 dashboard-form calender">
-                    <form class="form-horizontal">
-                        <?php
-                        if(isset($error))
-                        {
-                            foreach($error as $error)
-                            {
-                                 ?>
-                                 <div class="alert alert-danger">
-                                    <i class="glyphicon glyphicon-warning-sign"></i> &nbsp; <?php echo $error ?>
-                                 </div>
-                                 <?php
-                            }
-                        }
-                        if(isset($message))
-                        {
-                             ?>
-                             <div class="alert alert-success">
-                                <i class="glyphicon glyphicon-ok"></i> &nbsp; <?php echo $message ?>
-                             </div>
-                            <?php
-                        }
-                        ?>
+                    <form class="form-horizontal" action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post">
                         <div class="bg-white pinside40 mb30">
-
                             <div class="add_listing_info">
                             <h3>Persoonlijke informatie</h3>	
                             <div class="form-group">
@@ -128,64 +106,10 @@
                                     <input id="name" name="rijbewijs_geldigtot" type="text" placeholder="Rijbewijs geldig tot" class="form-control input-md" value="<?php echo $accountgegevens['rijbewijs_geldigtot']; ?>" required>
                                 </div>
                             </div>
-
-                            <label class="col-md-4 control-label" for="naam">Rijbewijs type(s)<span class="required">*</span></label>
                             <div class="form-group">
-                                <label class="col-md-4 control-label">
-                                    <input type="checkbox" class="checkbox" name="rijbewijs_B" value="1" value="<?php echo $accountgegevens['rijbewijs_B']; ?>"> 
-                                    <span class="label-text">B</span>
-                                </label>
-                                <label>
-                                    <input type="checkbox" class="checkbox" name="rijbewijs_BE" value="2" value="<?php if(isset($error)){echo $rijbewijs_BE;}?>"> 
-                                    <span class="label-text">BE</span>
-                                </label>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-md-4 control-label">
-                                    <input type="checkbox" class="checkbox" name="rijbewijs_C" value="3" value="<?php if(isset($error)){echo $rijbewijs_C;}?>"> 
-                                    <span class="label-text">C</span>
-                                </label>
-                                <label>
-                                    <input type="checkbox" class="checkbox" name="rijbewijs_CE" value="4" value="<?php if(isset($error)){echo $rijbewijs_CE;}?>"> 
-                                    <span class="label-text">CE</span>
-                                </label>
-                            </div>
-                            <!-- Button -->
-                            <div class="form-group">
-                                <label class="col-md-4 control-label" for="submit"></label>
+                                <label class="col-md-4 control-label" for="submit_user"></label>
                                 <div class="col-md-4">
-                                    <button id="submit" name="submit" class="btn btn-primary">Update account</button>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-                <div class="col-md-5 dashboard-form">
-                    <form class="form-horizontal">
-                        <div class="bg-white pinside30">
-                            <h2 class="form-title">Wijzig wachtwoord</h2>
-                            <div class="form-group">
-                                <label class="col-md-4 control-label" for="oldpassword">Huidig wachtwoord</label>
-                                <div class="col-md-8">
-                                    <input id="oldpassword" name="huidig_wachtwoord" type="password" placeholder="Huidig wachtwoord" class="form-control input-md" required>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-md-4 control-label" for="newpassword">Nieuw wachtwoord</label>
-                                <div class="col-md-8">
-                                    <input id="newpassword" name="nieuw_wachtwoord" type="password" placeholder="Nieuw wachtwoord" class="form-control input-md" required="">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-md-4 control-label" for="ConfirmPassword">Herhaal wachtwoord</label>
-                                <div class="col-md-8">
-                                    <input id="ConfirmPassword" name="herhaal_wachtwoord" type="password" placeholder="Herhaal wachtwoord" class="form-control input-md" required="">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-md-4 control-label" for="submit"></label>
-                                <div class="col-md-4">
-                                    <button id="submit" name="submit" class="btn btn-primary btn-lg">Wijzig wachtwoord</button>
+                                    <button id="submit" name="submit_user" class="btn btn-primary">Update account</button>
                                 </div>
                             </div>
                         </div>

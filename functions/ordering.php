@@ -18,22 +18,6 @@ if(empty($objects))
 ?>
 
 <?php
-if ( isset($_POST['submit']) ){
-  if(strtotime($_POST['first']) > strtotime($_POST['second'])) {
-    echo "De start datum is later dan de einddatum";
-  }
-  else {
-    echo 'Reservering geplaats ga naar mijn reserveringen om deze te bekijken';
-    $reserverdate = $_POST['first'];
-    $datumterug = $_POST['second'];
-    $username = $_SESSION["username"];
-    $resering = $reserveer->Save($username, $object->id, $todaydate, $reserverdate, $datumterug);
-
-  }
-}
-?>
-
-<?php
 foreach ($objects as $object):
 $first = true;
 $objectnumber = $object->chassinummer;
@@ -44,6 +28,7 @@ $objectidhref = "#".$object->chassinummer;
   <div class="row">
 
     <div class="col-lg-9">
+      <div><h1><?php echo $object->object_type;?></h1></div>
       <?php echo '<div id="'.$objectnumber.'" class="carousel slide my-4" data-ride="carousel">' ?>
         <div class="carousel-inner" role="listbox">
           <?php
@@ -78,8 +63,7 @@ $objectidhref = "#".$object->chassinummer;
         </div>
 
       <div class="col-lg-3">
-        <div><h1><?php echo $object->object_type;?></h1></div>
-        <div>objectid: <?php echo $object->id;?></div>
+      </br>
         <div>Kenteken: <?php echo $object->kenteken;?></div>
         <div>Chassinummer: <?php echo $object->chassinummer;?></div>
         <div>Merk: <?php echo $object->merk;?></div>
@@ -112,6 +96,20 @@ $objectidhref = "#".$object->chassinummer;
             <div class="form-group ">
 							<button type="submit" class="btn btn-primary btn-lg btn-block login-button" name="submit">Reserveer</button>
 						</div>
+            <?php
+            if ( isset($_POST['submit']) ){
+              if(strtotime($_POST['first']) > strtotime($_POST['second'])) {
+                echo "De start datum is later dan de einddatum";
+              }
+              else {
+                echo 'Reservering geplaats ga naar mijn reserveringen om deze te bekijken';
+                $reserverdate = $_POST['first'];
+                $datumterug = $_POST['second'];
+                $username = $_SESSION["username"];
+                $resering = $reserveer->Save($username, $object->id, $todaydate, $reserverdate, $datumterug);
+              }
+            }
+            ?>
           </form>
       </div>
       <?php endforeach; ?>
@@ -125,7 +123,6 @@ $objectidhref = "#".$object->chassinummer;
         <?php
       endforeach; ?> -->
           </br>
-
     </div>
 
   </div>

@@ -29,7 +29,6 @@ class RegisterModules
 			$gebruikersnaam = $anw['gebruikersnaam'];
 			$wachtwoord = $anw['wachtwoord'];
 			$wachtwoord_controle = $anw['wachtwoord_controle'];
-			$hash = password_hash($wachtwoord, PASSWORD_DEFAULT);
 			$status = 1;
 			$admin = 0;
 
@@ -49,7 +48,7 @@ class RegisterModules
 	        $lastid = $this->pdo->LastInsertId();
 
 			$stmt2 = $this->pdo->prepare("INSERT INTO accountgegevens (email, gebruikersnaam, status, admin, wachtwoord, klantgegevens_id) VALUES (:email, :gebruikersnaam, :status, :admin, :wachtwoord, :klantgegevens_id)");
-		    $stmt2->execute(array(':email' => $email, ':gebruikersnaam' => $gebruikersnaam, ':status' => $status, ':admin' => $admin, ':wachtwoord' => $hash, ':klantgegevens_id' => $lastid));
+		    $stmt2->execute(array(':email' => $email, ':gebruikersnaam' => $gebruikersnaam, ':status' => $status, ':admin' => $admin, ':wachtwoord' => $wachtwoord, ':klantgegevens_id' => $lastid));
 
 	        $stmt3 = $this->pdo->prepare("INSERT INTO rijbewijs (klantgegevens_id, rijbewijsnummer, rijbewijs_afgifte, rijbewijs_geldigtot) VALUES (:klantgegevens_id, :rijbewijsnummer, :rijbewijs_afgifte, :rijbewijs_geldigtot)");
 	        $stmt3->execute(array(':klantgegevens_id' => $lastid, ':rijbewijsnummer' => $rijbewijsnummer, ':rijbewijs_afgifte' => $datum_afgifte, ':rijbewijs_geldigtot' => $datum_geldigtot));

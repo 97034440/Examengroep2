@@ -28,8 +28,8 @@ Class AccountModules {
 		$stmt->execute(array(":id"=>$userRow['klantgegevens_id']));
 		$userRow3=$stmt->fetch(PDO::FETCH_ASSOC);
 
-		// $userRow33['rijbewijs_afgifte'] = date('d-m-Y');
-  //   	$userRow33['rijbewijs_geldigtot'] = date('d-m-Y');
+		$userRow33['rijbewijs_afgifte'] = date('d-m-Y');
+    	$userRow33['rijbewijs_geldigtot'] = date('d-m-Y');
 		
 		$array = [
 			'email' => $userRow['email'],

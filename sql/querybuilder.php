@@ -18,7 +18,7 @@ protected $pdo;
     return $statement->fetchAll(PDO::FETCH_CLASS);
     // alles uit de database lezen.
   }
-  public function selectImage ($table, $row, $objectid){
+  public function selectSpecific ($table, $row, $objectid){
     $tableinsert = htmlspecialchars($table);
     $rowinsert = htmlspecialchars($row);
     $objectidinsert = htmlspecialchars($objectid);

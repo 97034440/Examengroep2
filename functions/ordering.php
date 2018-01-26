@@ -6,9 +6,11 @@ require_once '../init.php';
 $object_id = $_GET['product'];
 $query = new Querybuilder(connection::connect($config['database']));
 $reserveer = new Reserveer(connection::connect($config['database']));
-//roept de selectAll function aan van de querybuilder en stuurt de tabelnaam
+
 //en de classnaam waar je de object aan wilt koppelen.
-$objects = $query->selectImage('object', 'id', $object_id);
+//roept de selectSpecific function aan van de querybuilder en stuurt de tabelnaam
+$objects = $query->selectSpecific('object', 'id', $object_id);
+//roept de selectAll function aan van de querybuilder en stuurt de tabelnaam
 $opties = $query->selectAll('optie');
 if(empty($objects))
 {
@@ -33,7 +35,7 @@ $objectidhref = "#".$object->chassinummer;
         <div class="carousel-inner" role="listbox">
           <?php
           $objectid = $object->id;
-          $images = $query->selectImage('objectimage', 'object_id', $objectid);
+          $images = $query->selectSpecific('objectimage', 'object_id', $objectid);
           // loop voor afbeeldingen
           foreach ($images as $image):
             $url = $image->imagelink;

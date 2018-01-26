@@ -18,22 +18,6 @@ if(empty($objects))
 ?>
 
 <?php
-if ( isset($_POST['submit']) ){
-  if(strtotime($_POST['first']) > strtotime($_POST['second'])) {
-    echo "De start datum is later dan de einddatum";
-  }
-  else {
-    echo 'Reservering geplaats ga naar mijn reserveringen om deze te bekijken';
-    $reserverdate = $_POST['first'];
-    $datumterug = $_POST['second'];
-    $username = $_SESSION["username"];
-    $resering = $reserveer->Save($username, $object->id, $todaydate, $reserverdate, $datumterug);
-
-  }
-}
-?>
-
-<?php
 foreach ($objects as $object):
 $first = true;
 $objectnumber = $object->chassinummer;
@@ -125,7 +109,20 @@ $objectidhref = "#".$object->chassinummer;
         <?php
       endforeach; ?> -->
           </br>
-
+          <?php
+          if ( isset($_POST['submit']) ){
+            if(strtotime($_POST['first']) > strtotime($_POST['second'])) {
+              echo "De start datum is later dan de einddatum";
+            }
+            else {
+              echo 'Reservering geplaats ga naar mijn reserveringen om deze te bekijken';
+              $reserverdate = $_POST['first'];
+              $datumterug = $_POST['second'];
+              $username = $_SESSION["username"];
+              $resering = $reserveer->Save($username, $object->id, $todaydate, $reserverdate, $datumterug);
+            }
+          }
+          ?>
     </div>
 
   </div>

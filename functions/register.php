@@ -1,7 +1,9 @@
 <!-- Dit document is gemaakt door Joanne -->
 <?php
 
+//include register. deze pagina is nodig om querys uit te voeren
 include('../modules/register.php');
+
 
 class RegisterFunction {
 	

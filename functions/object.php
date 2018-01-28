@@ -23,7 +23,7 @@ $objects = $query->selectAll('object');
             <div class="carousel-inner" role="listbox">
               <?php
               $objectid = $object->id;
-              $images = $query->selectImage('objectimage', 'object_id', $objectid);
+              $images = $query->selectSpecific('objectimage', 'object_id', $objectid);
               // loop voor afbeeldingen
               foreach ($images as $image):
                 $url = $image->imagelink;

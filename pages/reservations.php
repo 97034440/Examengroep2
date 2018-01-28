@@ -24,8 +24,8 @@ require'../init.php';
 include('nav.php');
 $query = new Querybuilder(connection::connect($config['database']));
 $username = $_SESSION["username"];
-$reservations = $query->selectImage('ordernummer', 'klant_id', $username);
-$accountgegevens = $query->selectImage('ordernummer', 'klant_id', $username);
+$reservations = $query->selectSpecific('ordernummer', 'klant_id', $username);
+$accountgegevens = $query->selectSpecific('ordernummer', 'klant_id', $username);
 if(!isset($_SESSION['username'])){ //if login in session is not set
     header("Location: /Examengroep2");
 }

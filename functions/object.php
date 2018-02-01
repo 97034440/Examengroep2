@@ -3,15 +3,11 @@
 if(!isset($_SESSION['username'])){ //if login in session is not set
     header("Location: /Examengroep2");
 }
-//ik roep de query class aan en stuur de pdo verbinding gegevens mee.
 $query = new Querybuilder(connection::connect($config['database']));
-//roept de selectAll function aan van de querybuilder en stuurt de tabelnaam
-//en de classnaam waar je de object aan wilt koppelen.
 $objects = $query->selectAll('object');
 ?>
 
     <?php
-    //loop voor objects
     foreach ($objects as $object):
       $first = true;
       $objectid = $object->chassinummer;
@@ -62,6 +58,5 @@ $objects = $query->selectAll('object');
           </div>
 
     <?php endforeach; ?>
-
 
 </html>

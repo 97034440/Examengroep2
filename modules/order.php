@@ -27,7 +27,7 @@ protected $pdo;
     $datumterug = date("Y-m-d", strtotime($value5));
     $datumteruggave = htmlspecialchars($datumterug);
     //selecteerd alles uit de tabelnaam die je hebt meegegeven.
-    $statement = $this->pdo->prepare("INSERT INTO `examen`.`ordernummer`
+    $statement = $this->pdo->prepare("INSERT INTO `ordernummer`
       (`ordernummer`, `klant_id`, `object_id`, `orderdatum`, `datum_uit`, `datum_terug`)
       VALUES (NULL, '{$klantid}', {$object}, '{$currentDate}', '{$datumuitgave}', '{$datumteruggave}');");
     // statement uitvoeren.

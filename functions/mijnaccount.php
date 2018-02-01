@@ -56,19 +56,13 @@ Class AccountFunction {
 		$tussenvoegsel = strip_tags($_POST['tussenvoegsel']);	
 		$achternaam = strip_tags($_POST['achternaam']);	
 		$email = strip_tags($_POST['email']);
-		$wachtwoord = strip_tags($_POST['wachtwoord']);	
-		$wachtwoord_controle = strip_tags($_POST['wachtwoord_controle']);	
 		$telefoonnummer = strip_tags($_POST['telefoonnummer']);	
 		$adres = strip_tags($_POST['adres']);	
 		$postcode = strip_tags($_POST['postcode']);	
 		$woonplaats = strip_tags($_POST['woonplaats']);	
 		$rijbewijsnummer = strip_tags($_POST['rijbewijsnummer']);	
 		$rijbewijs_afgifte = strip_tags($_POST['rijbewijs_afgifte']);	
-		$rijbewijs_geldigtot = strip_tags($_POST['rijbewijs_geldigtot']);	
-		// $rijbewijs_B = isset($_POST['rijbewijs_B']);
-		// $rijbewijs_BE = isset($_POST['rijbewijs_BE']);	
-		// $rijbewijs_C = isset($_POST['rijbewijs_C']);	
-		// $rijbewijs_CE = isset($_POST['rijbewijs_CE']);	
+		$rijbewijs_geldigtot = strip_tags($_POST['rijbewijs_geldigtot']);		
 		
 		$error = array();
 
